@@ -1,0 +1,57 @@
+﻿@model W_TGO_STOCK_LIST
+@{
+    ViewData["Title"] = "Stok Listesi";
+
+}
+
+<div class="content-box">
+    <div class="element-wrapper">
+        @*<h6 class="element-header">
+        STOK
+        </h6>*@
+        <div class="element-box">
+            <form id="stockDTform">
+                <h5 class="form-header">
+                    STOK LİSTESİ
+                </h5>
+                <div class="form-desc">
+                    Şuanda stoktaki tüm ürünleri görüntülemektesiniz. Arama yapmak için sağdaki kutucuğu kullanabilirsiniz. <a href="/stock/add"> Yeni ürün ekle.</a>
+                    <div class="dts-transact">
+                        <div class="dts-transact-actions">
+                            <a class="add separate" href="#"> Yeni <i class="os-icon os-icon-common-03"></i></a>
+                            <a class="remove separate" href="#"> Sil <i class="os-icon os-icon-ui-15"></i></a>
+                            @*<a id="recycleBin" class="separate" href="#"> Geri Dönüşüm Kutusu <i class="os-icon os-icon-ui-44"></i></a>*@
+                            @*<a id="save" class="separate" href="#"> Kaydet <i class="os-icon os-icon-save"></i></a>*@
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="table-responsive">
+                    <table id="stockDT" c="stock" d="load" r="detail" dsrc="@nameof(Model.STOCK_LIST)" rol="router" width="100%" class="activeDataTable dataTable table table-striped table-lightfont">
+                        <thead>
+                            <tr>
+                                <th fsrc="@nameof(Model.STOCK.STID64)"> <input class="table-checkbox select-all" type="checkbox"></th>
+                                <th fsrc="@nameof(Model.STOCK.STOKADI)">Stok Adı</th>
+                                <th fsrc="@nameof(Model.STOCK.URUNHIZMETTURU)">Türü</th>
+                                <th fsrc="@nameof(Model.STOCK.STOKKODU)">Stok Kodu</th>
+                                <th fsrc="@nameof(Model.STOCK.MIKTAR)">Miktar</th>
+                                <th fsrc="@nameof(Model.STOCK.ALISFIYAT)">Alış Fiyatı</th>
+                                <th fsrc="@nameof(Model.STOCK.SATISFIYAT)">Satış Fiyatı</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+         dataTable.create($('#stockDT'));
+    </script>
+
+}

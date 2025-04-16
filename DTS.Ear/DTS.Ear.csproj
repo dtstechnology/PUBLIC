@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="1.0.113" />
+
+	  <PackageReference Include="Autofac" Version="7.0.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.AspNet.Providers.Core" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="6.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="5.0.17" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.22.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="5.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DTS.Ear.Library\DTS.Ear.Library\DTS.Ear.Library.csproj" />
+    <ProjectReference Include="..\DTS.Logic.Layer\DTS.Logic.Layer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\css\Elements.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Script Include="**" />
+		<Script Remove="**.d.ts" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Script Remove=".bowerrc" />
+	  <Script Remove="bower.json" />
+	  <Script Remove="Controllers\StockActivitiesController.cs" />
+	  <Script Remove="DecimalConverterJSN.cs" />
+	  <Script Remove="OnlineUsersHub.cs" />
+	  <Script Remove="Views\Accounts\List.cshtml" />
+	  <Script Remove="Views\Shared\_Layout.cshtml" />
+	  <Script Remove="Views\Shared\_LayoutV.cshtml" />
+	  <Script Remove="wwwroot\js\dataTables.dts.min.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="Views\Accounts\Add.cshtml" />
+	  <None Include="Views\Accounts\Detail.cshtml" />
+	  <None Include="Views\Bills\Add.cshtml" />
+	  <None Include="Views\Bills\Detail.cshtml" />
+	  <None Include="Views\StockActivities\Detail.cshtml" />
+	  <None Include="Views\StockActivities\TakeOff.cshtml" />
+	  <None Include="Views\StockActivities\TakeOn.cshtml" />
+	  <None Include="Views\Stock\Activity.cshtml" />
+	  <None Include="Views\Stock\Add.cshtml" />
+	  <None Include="Views\Stock\Detail.cshtml" />
+	  <None Include="Views\Stock\RecycleBin.cshtml" />
+	</ItemGroup>
+ 
+	
+</Project>

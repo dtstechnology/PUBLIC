@@ -1,0 +1,57 @@
+﻿@using DTS.Logic.Layer.ViewModels
+
+@model W_TGO_BILLS_LIST
+@{
+    ViewData["Title"] = "Fatura Listesi";
+}
+
+
+<div class="content-box">
+    <div class="element-wrapper">
+        @*<h6 class="element-header">
+        FATURA
+        </h6>*@
+        <div class="element-box">
+            <form id="form">
+                <h5 class="form-header">
+                    Faturalar
+                </h5>
+                <div class="form-desc">
+                    Son bir aya ait faturalarınız listelenmiştir. Bu yıla ait tüm faturaları görüntülemek için lütfen <a href="#" target="_blank">tıklayınız...</a>
+                     <div class="dts-transact">
+                        <div class="dts-transact-actions">
+                            <a class="add separate" href="#"> Yeni <i class="os-icon os-icon-common-03"></i></a>
+                            <a class="remove separate" href="#"> Sil <i class="os-icon os-icon-ui-15"></i></a>
+                            @*<a id="recycleBin" class="separate" href="#"> Geri Dönüşüm Kutusu <i class="os-icon os-icon-ui-44"></i></a>*@
+                            @*<a id="save" class="separate" href="#"> Kaydet <i class="os-icon os-icon-save"></i></a>*@
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table id="billsDT" c="bills" d="load" r="detail" rol="router" dsrc="@nameof(Model.BILL_LIST)" width="100%" class="activeDataTable dataTable table table-striped table-lightfont">
+                        <thead>
+                            <tr>
+                                <th fsrc="@nameof(Model.BILL.BLID64)"><input class="table-checkbox select-all" type="checkbox"></th>
+                                <th fsrc="@nameof(Model.BILL.TARIH)">Tarih</th>
+                                <th fsrc="@nameof(Model.BILL.BELGENO)">Belge No</th>
+                                <th fsrc="@nameof(Model.BILL.ADSOYAD)">Ad Soyad</th>
+                                <th fsrc="@nameof(Model.BILL.ULKE)">Ülke</th>
+                                <th fsrc="@nameof(Model.BILL.VKNTCKN)">Vergi No</th>
+                                <th fsrc="@nameof(Model.BILL.TIPI)">Tipi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        dataTable.create($('#billsDT'));
+    </script>
+}

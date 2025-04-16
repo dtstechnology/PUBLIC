@@ -1,0 +1,61 @@
+﻿@using DTS.Logic.Layer.ViewModels
+
+@model W_TGO_ACCOUNTS_LIST
+@{
+    ViewData["Title"] = "Cari Hesap Listesi";
+}
+
+
+<div class="content-box">
+    <div class="element-wrapper">
+        @*<h6 class="element-header">
+        FATURA
+        </h6>*@
+        <div class="element-box">
+            <form id="form">
+                <h5 class="form-header">
+                    Cari Hesaplar
+                </h5>
+                <div class="form-desc">
+                    
+                    <div class="dts-transact">
+                        <div class="dts-transact-actions">
+                            <a class="add separate" href="#"> Yeni <i class="os-icon os-icon-common-03"></i></a>
+                            <a class="remove separate" href="#"> Sil <i class="os-icon os-icon-ui-15"></i></a>
+                            @*<a id="recycleBin" class="separate" href="#"> Geri Dönüşüm Kutusu <i class="os-icon os-icon-ui-44"></i></a>*@
+                            @*<a id="save" class="separate" href="#"> Kaydet <i class="os-icon os-icon-save"></i></a>*@
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="accountsDT" c="accounts" d="load" r="detail" rol="router" dsrc="@nameof(Model.ACCOUNT_LIST)" width="100%" class="activeDataTable dataTable table table-striped table-lightfont">
+                        <thead>
+                            <tr>
+                                <th fsrc="@nameof(Model.ACCOUNT.ACID)"><input class="table-checkbox select-all" type="checkbox"></th>
+                                <th fsrc="@nameof(Model.ACCOUNT.COMPANYNAME)">Şirket Adı</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.NAME)">Ad</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.SURNAME)">Soyad</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.PHONE)">Telefon</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.TAXOFFICE)">Vergi Dairesi</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.TAXNO)">Vergi No</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.COUNTRY)">Ülke</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.CITY)">Şehir</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.WEBADDRESS)">Web</th>
+                                <th fsrc="@nameof(Model.ACCOUNT.EMAIL)">Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        dataTable.create($('#accountsDT'));
+    </script>
+}

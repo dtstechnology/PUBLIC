@@ -1,0 +1,70 @@
+﻿@model W_TGO_STOCK_LIST
+@{
+    ViewData["Title"] = "Stok Geri Dönüşüm";
+
+}
+
+
+<div class="content-box">
+    <div class="element-wrapper">
+        @*<h6 class="element-header">
+        STOK
+        </h6>*@
+
+        <div class="element-box">
+            <h5 class="form-header">
+                STOKTAN SİLİNEN ÜRÜNLER
+            </h5>
+            <div class="form-desc">
+                Şuanda stoktaki tüm ürünleri görüntülemektesiniz. Arama yapmak için sağdaki kutucuğu kullanabilirsiniz. <a href="/stock/add"> Yeni ürün ekle.</a>
+            </div>
+            <form id="form">
+                <div class="table-responsive">
+                    <table id="dataTable1" width="100%" class="table table-striped table-lightfont">
+                        <thead>
+                            <tr><th> Seç</th><th>Stok Adı</th><th>Türü</th><th>Stok Kodu</th><th>Miktar</th><th>Alış Fiyatı</th><th>Satış Fiyatı</th>@*<th>İşlemler</th>*@</tr>
+                        </thead>
+                        @*<tfoot><tr><th>Name</th><th>Position</th><th>Office</th><th>Age</th><th>Start date</th><th>Salary</th></tr></tfoot>*@
+                        <tbody>
+                            @{
+                                foreach (var item in Model.STOCK_LIST)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input class="form-control" type="checkbox" aria-data="@item.STID">
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <i class="os-icon os-icon-documents-17"></i>
+                                                @item.STOKADI
+                                            </a>
+                                        </td>
+                                        <td>@item.URUNHIZMETTURU</td>
+                                        <td>@item.STOKKODU </td>
+                                        <td>@item.MIKTAR @item.BIRIM</td>
+                                        <td>@item.ALISFIYAT ₺</td>
+                                        <td>@item.SATISFIYAT ₺</td>
+                                        @*<td class="row-actions">
+                                <a href="#"><i class="os-icon os-icon-ui-49"></i></a>
+                                <a href="#"><i class="os-icon os-icon-grid-10"></i></a>
+                                <a class="danger" href="#"><i class="os-icon os-icon-ui-15"></i></a>
+                                </td>*@
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/dataTables.bootstrap4.min.js"></script>
+
+
+}

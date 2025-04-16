@@ -1,0 +1,176 @@
+﻿@model W_TGO_STOCK
+@{
+    ViewData["Title"] = "Stok Ekle";
+}
+
+
+<div class="content-box">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="element-wrapper">
+                <div class="element-box">
+                    <form id="formValidate" action="/stock/add">
+                        <h5 class="form-header">
+                            Yeni Stok(Ürün) Ekle
+                        </h5>
+                        <div class="form-desc">
+                            Yeni stok(ürün) eklemek için lütfen formu doldurunuz.
+                        </div>
+
+                        <fieldset class="form-group">
+                            <legend><span>Ürün Bilgileri</span></legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Stok Kodu</label>
+                                        <input asp-for="STOKKODU" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Stok Kodu" required="required" type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Barkod</label>
+                                        <input asp-for="BARKOD" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Barkod" required="required" type="text">
+                                        <div name="barkod" class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Ürün Hizmet Türü </label>
+                                        <input asp-for="URUNHIZMETTURU" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ürün Hizmet Türü" required="required" type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Ürün Adı</label>
+                                        <input asp-for="STOKADI" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ürün Adı" required="required" type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Miktar </label>
+                                        <input asp-for="MIKTAR" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ürün Hizmet Türü" required="required" type="number">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Birim</label>
+                                        <select asp-for="BIRIM" class="form-control">
+                                            <option value="Adet">
+                                                Adet
+                                            </option>
+                                            <option value="Set">
+                                                Set
+                                            </option>
+                                            <option value="Paket">
+                                                Paket
+                                            </option>
+                                            <option value="Kutu">
+                                                Kutu
+                                            </option>
+                                            <option value="kg">
+                                                kg
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for=""> Alış Fiyat </label>
+                                        <input asp-for="ALISFIYAT" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ürün Hizmet Türü" required="required" type="number">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for=""> Satış Fiyat </label>
+                                        <input asp-for="SATISFIYAT" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ürün Hizmet Türü" required="required" type="number">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for=""> KDV Oran </label>
+                                        <select asp-for="KDVORAN" class="form-control">
+                                            <option value="1">
+                                                %1
+                                            </option>
+                                            <option value="8">
+                                                %8
+                                            </option>
+                                            <option value="18">
+                                                %18
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </fieldset>
+
+
+
+
+
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                        </div>
+
+
+
+
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+     @*   <div class="col-sm-5">
+            <div class="element-wrapper">
+                <div class="element-box">
+
+                    <h5 class="form-header">
+                        Görsel Ekle
+                    </h5>
+                    <div class="form-desc">
+                        Ürüne görsel eklemek için tıklayın.
+                    </div>
+
+                    <form action="index.html" class="dropzone" id="my-awesome-dropzone">
+                        <div class="dz-message">
+                            <div>
+                                <h4>Drop files here or click to upload.</h4><div class="text-muted">(This is just a demo dropzone. Selected files are not actually uploaded)</div>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>*@
+
+
+    </div>
+</div>

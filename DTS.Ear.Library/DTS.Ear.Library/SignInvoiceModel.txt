@@ -1,0 +1,28 @@
+ http://localhost:10561/Invoice/VerifySignSMS?code=T8KP0L&oid=0nlfca1pti131z
+
+var faturalar = new[]
+            {
+                new { faturaOid = "", 
+                    toplamTutar = "0", 
+                    belgeNumarasi = "",
+                    aliciVknTckn = "",
+                    aliciUnvanAdSoyad = "",
+                    saticiVknTckn = "",
+                    saticiUnvanAdSoyad = "",
+                    belgeTarihi = "17-03-2023",
+                    belgeTuru = "FATURA",
+                    onayDurumu = "Onaylanmadı",
+                    ettn = "6",
+                    talepDurumColumn = "----------",
+                    iptalItiraz = "-99",
+                    talepDurum = "-99"
+                } 
+            };
+            
+            var data = new
+            {
+                SIFRE = smsCode,
+                OID = oid,
+                OPR = 1,
+                DATA = faturalar
+            };

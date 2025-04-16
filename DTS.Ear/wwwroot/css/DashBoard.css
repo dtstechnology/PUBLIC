@@ -1,0 +1,127 @@
+﻿
+table {
+    width: 100%;
+}
+
+th {
+    font-size: 13px;
+    height: 100%;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+}
+
+thead > tr {
+    /*width: 100%;*/
+    min-height: 65px;
+    height: 65px;
+    max-height: 65px;
+    /*  display: flex;
+    align-items: center;*/
+    cursor: pointer;
+    /*background-color: #EFF4F6;*/
+}
+
+td {
+    height: 100%;
+    width: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+    tbody > tr {
+        min-height: 50px;
+        height: 65px;
+        cursor: pointer;
+        border-style: solid;
+        border-color: #dedede;
+        border-width: 1px;
+    }
+
+        tbody > tr:hover {
+            /*border-style: hidden;*/
+            /*outline-style: solid;
+        outline-width: 2px;
+        outline-color: #0A639A;*/
+            -webkit-box-shadow: inset 0px 0.5px 0 2px #0A639A;
+        }
+
+            tbody > tr:hover td:first-child {
+                background-color: #0A639A;
+                color: white;
+            }
+
+        tbody > tr:focus {
+            background-color: #0A639A !important;
+            color: white !important;
+        }
+
+            tbody > tr:focus .green {
+                color: white;
+            }
+
+    tbody tr:nth-child(even) {
+        background-color: #EFF4F6;
+    }
+
+.dbt-tarihBelgeNo {
+    font-size: 13px;
+}
+
+.dbt-aliciUnvanAdSoyad {
+    width: 100%;
+    font-size: 14px;
+}
+
+.dbt-unvan {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 45px;
+}
+
+.dbt-onay {
+    min-width: 30px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    .dbt-onay:hover {
+        background-color: #0A639A;
+        color: white;
+    }
+
+
+
+@media screen and (min-width: 100px) and (max-width: 1000px) {
+    .dbt-tarihBelgeNo {
+        font-size: 11px;
+    }
+
+    .dbt-belgeNo {
+        font-size: 9px;
+    }
+
+    .dbt-aliciUnvanAdSoyad {
+        font-size: 13px;
+    }
+
+    .dbt-onay {
+        font-size: 13px;
+    }
+}

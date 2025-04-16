@@ -1,0 +1,186 @@
+﻿
+
+input[type="text"], [type="password"] {
+    font-family: 'Titillium Web' !important;
+    width: 100%;
+    height: 60px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #d3d3d3;
+    font-size: 15px;
+    padding: 10px;
+}
+
+input:focus {
+    outline: none !important;
+    /*box-shadow: 0 0 5px #0a639a; */
+    border-width: 2px;
+    border-color: #77c5d5;
+}
+
+
+input[type="submit"] {
+    font-family: 'Titillium Web' !important;
+    width: 49%;
+    height: 60px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #d3d3d3;
+    font-size: 15px;
+    padding: 10px;
+}
+
+    input[type="submit"]:focus {
+        outline: none !important;
+        /*box-shadow: 0 0 5px #0a639a; */
+        border-width: 2px;
+        border-color: #77c5d5;
+    }
+
+/*---------------------------------------------------*/
+
+
+.switch_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 200px;
+    min-width: 200px;
+    height: 1.2em;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.box_1 {
+    background: #eee;
+}
+
+
+input[type="checkbox"].switch_1 {
+    border-style: none !important;
+    font-size: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1.5em;
+    height: 0.7em;
+    background: #ddd;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    outline: none !important;
+    ;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+    input[type="checkbox"].switch_1:checked {
+        background: #19779b;
+    }
+
+    input[type="checkbox"].switch_1:after {
+        position: absolute;
+        content: "";
+        width: 0.7em;
+        height: 0.7em;
+        border-radius: 50%;
+        background: #fff;
+        -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+        box-shadow: 0 0 .25em rgba(0,0,0,.3);
+        -webkit-transform: scale(.7);
+        transform: scale(.7);
+        left: 0;
+        top: 0;
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out;
+    }
+
+    input[type="checkbox"].switch_1:checked:after {
+        left: calc(100% - 0.7em);
+    }
+
+/*---------------------------------------------------*/
+
+
+
+.mobile-page {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-image: url(../src/Auth/signInImg.jpg);
+    background-size: cover;
+}
+
+.mobile-page-in {
+    width: 100%;
+    background: white;
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.desktop-signin-img {
+    display: none;
+    height: 100vh;
+    
+}
+
+
+ 
+
+@media screen and (min-width: 1000px) and (max-width: 5000px) {
+
+    .mobile-page {
+        width: 100%;
+        display: flex;
+        justify-content: center; 
+        min-height: 100vh;
+        align-items: center;
+    }
+
+    .mobile-page-in {
+        width: 600px;
+        min-height: 90vh;
+        padding: 50px;
+        height: 90%; 
+    }
+
+    .desktop-signin-img {
+        width: 50%;
+        display: block;
+    }
+}
+
+
+#dtsHeader {
+    width: 100%;
+    height: 100px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dtsHeader-in {
+    width: 90%;
+    height: 100%;
+    display: flex;
+}
+
+.dtsHeader-area {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+#dtsHeaderRight {
+    text-align: right;
+    justify-content: flex-end;
+    font-size: 30px;
+}

@@ -1,0 +1,230 @@
+﻿@using System.Text;
+@model W_TGO_STOCK_LIST
+@{
+    ViewData["Title"] = "Stok Detay";
+
+}
+
+<div class="content-box">
+    <div class="element-wrapper">
+        @*<h6 class="element-header">
+        STOK
+        </h6>*@
+
+        <div class="element-box">
+
+            <div class="dts-transact" action="">
+                <div class="dts-transact-actions">
+                    <a class="edit separate" href="#"> Ürün Bilgilerini Düzenle <i class="os-icon os-icon-edit-32"></i></a>
+                </div>
+            </div>
+            <h5 class="form-header">
+                Stok Detayları
+            </h5>
+            <form id="stockDetailForm">
+                <h5 style="color: #0054ac;">Stoktaki Miktar : <label asp-for="STOCK.MIKTAR">@Model.STOCK.MIKTAR</label> @Model.STOCK.BIRIM </h5>
+                <h3>@Model.STOCK.STOKADI</h3>
+                <h6>@Model.STOCK.STOKKODU / @Model.STOCK.BARKOD / @Model.STOCK.URUNHIZMETTURU</h6>
+                <h6>Alış Fiyat : @Model.STOCK.ALISFIYAT - Satış Fiyat : @Model.STOCK.SATISFIYAT </h6>
+
+
+            </form>
+            <div class="form-desc">
+                Şuanda seçtiğiniz ürüne ait stok hareketlerini görüntülemektesiniz.
+            </div>
+
+            <fieldset class="form-group">
+
+                <legend><span>Stok Hareketleri</span></legend>
+
+                @*
+                <a href="/stockactivities/takeoff?i=@Model.STOCK.STID64" class="mr-2 mb-2 btn btn-primary">
+                Stok Çıkış
+                <i class="os-icon os-icon-arrow-2-up"></i>
+                </a>
+
+                <a href="/stockactivities/takeon?i=@Model.STOCK.STID64" class="mr-2 mb-2 btn btn-primary">
+                Stok Giriş
+                <i class="os-icon os-icon-arrow-2-down"></i>
+                </a>*@
+
+
+                <button class="mr-2 mb-2 btn btn-primary" data-target="#stokCikisModal" data-toggle="modal" type="button">Stok Çıkışı <i class="os-icon os-icon-arrow-2-up"></i></button>
+                <div aria-hidden="true" class="onboarding-modal modal fade animated" id="stokCikisModal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-lg modal-centered" role="document">
+                        <div class="modal-content text-center">
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Kapat</span><span class="os-icon os-icon-close"></span></button>
+                            <div class="onboarding-side-by-side">
+                                <div class="onboarding-media">
+                                    <i class="os-icon os-icon-arrow-2-up" style="font-size: 100px;color: #047bf8;"></i>
+                                </div>
+                                <div class="onboarding-content with-gradient">
+                                    <h4 class="onboarding-title">
+                                        Stok Çıkışı
+                                    </h4>
+                                    <div class="onboarding-text">
+                                        Aşağıdaki formu doldurarak <b>@Model.STOCK.STOKADI </b> ürününüze stok çıkışı yapabilirsiniz.
+                                    </div>
+                                    <form id="stokCikisModalForm" class="formValidate" action="/stock/takeoff">
+                                        <input asp-for="STOCK.STID" type="hidden" />
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="">Miktar</label>
+                                                    <input asp-for="STOCK_ACTIVITIES.MIKTAR" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Miktar" required="required" type="number">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="">Depo</label>
+                                                    <select class="form-control">
+                                                        <option>
+                                                            Merkez
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Giriş Tarihi</label>
+                                                    <input asp-for="STOCK_ACTIVITIES.TARIH" class="form-control" placeholder="Tarih" type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label> Açıklama </label>
+                                                    <textarea asp-for="STOCK_ACTIVITIES.ACIKLAMA" class="form-control" rows="1" data-error="Lütfen Alanı Doldurun" placeholder="Açıklama" required="required"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-buttons-w">
+                                            <button class="btn btn-primary" type="submit" reload="stockActivitiesDT"> Kaydet </button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <button class="mr-2 mb-2 btn btn-primary" data-target="#stokGirisModal" data-toggle="modal" type="button">Stok Girişi <i class="os-icon os-icon-arrow-2-down"></i></button>
+                <div aria-hidden="true" class="onboarding-modal modal fade animated" id="stokGirisModal" role="dialog" tabindex="-1">
+                    <div class="modal-dialog modal-lg modal-centered" role="document">
+                        <div class="modal-content text-center">
+                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Kapat</span><span class="os-icon os-icon-close"></span></button>
+                            <div class="onboarding-side-by-side">
+                                <div class="onboarding-media">
+                                    <i class="os-icon os-icon-arrow-2-down" style="font-size: 100px;color: #047bf8;"></i>
+                                </div>
+                                <div class="onboarding-content with-gradient">
+                                    <h4 class="onboarding-title">
+                                        Stok Girişi
+                                    </h4>
+                                    <div class="onboarding-text">
+                                        Aşağıdaki formu doldurarak <b> @Model.STOCK.STOKADI </b> ürününüze stok girişi yapabilirsiniz.
+                                    </div>
+                                    <form id="stokGirisModalForm" class="formValidate" action="/stock/takeon">
+                                        <input asp-for="STOCK.STID" type="hidden" />
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="">Miktar</label>
+                                                    <input asp-for="STOCK_ACTIVITIES.MIKTAR" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Miktar" required="required" type="number">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="form-group">
+                                                    <label for="">Depo</label>
+                                                    <select class="form-control">
+                                                        <option>
+                                                            Merkez
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Giriş Tarihi</label>
+                                                    <input asp-for="STOCK_ACTIVITIES.TARIH" class="single-daterange form-control" placeholder="Tarih" type="text" value="@DateTime.Now">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label> Açıklama </label>
+                                                    <textarea asp-for="STOCK_ACTIVITIES.ACIKLAMA" class="form-control" rows="1" data-error="Lütfen Alanı Doldurun" placeholder="Açıklama" required="required"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-buttons-w">
+                                            <button class="btn btn-primary" type="submit" reload="stockActivitiesDT"> Kaydet</button>
+                                        </div>
+                                        <br><br><br><br>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <form id="stockActivitiesDTForm">
+
+                    <div class="dts-transact">
+                        <div class="dts-transact-actions">
+                            <a class="remove separate" href="#"> Sil <i class="os-icon os-icon-ui-15"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+                        <table id="stockActivitiesDT" c="stock" d="activitiesLoad" r="activity" rol="router" i="@Model.STOCK.STID64" dsrc="@nameof(Model.STOCK_ACTIVITIES_LIST)" width="100%" class="dataTable table table-striped table-lightfont">
+                            <thead>
+                                <tr>
+                                    <th fsrc="@nameof(Model.STOCK_ACTIVITIES.STACTID64)"><input class="table-checkbox select-all" type="checkbox"></th>
+                                    <th fsrc="@nameof(Model.STOCK_ACTIVITIES.ACIKLAMA)">Açıklama</th>
+                                    <th fsrc="@nameof(Model.STOCK_ACTIVITIES.ACNAME)">İlgili Hesap</th>
+                                    <th sort="desc" fsrc="@nameof(Model.STOCK_ACTIVITIES.TARIH)">Tarih</th>
+                                    <th fsrc="@nameof(Model.STOCK_ACTIVITIES.ISLEMTURU)">İşlem Türü</th>
+                                    <th fsrc="@nameof(Model.STOCK_ACTIVITIES.MIKTAR)">Miktar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </form>
+            </fieldset>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+
+        dataTable.create($('#stockActivitiesDT'));
+
+        function submitAfterEvent(e) {
+            debugger;
+            $('#stockDetailForm').find('label[for="STOCK_MIKTAR"]').text(e.STOCK.MIKTAR);
+            alertBox(null, "Stok Güncellendi.Güncel stok : " + e.STOCK.MIKTAR);
+        }
+
+    </script>
+}

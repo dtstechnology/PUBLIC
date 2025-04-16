@@ -1,0 +1,30 @@
+﻿@section Styles {
+    <link rel="stylesheet" href="/css/Details.css" type="text/css" />
+}
+    @model DTS.Logic.Layer.ViewModels.W_TGO_INVDETAIL
+
+    @{
+    ViewData["Title"] = "Invoice Detail Page";
+}
+
+<br />
+<br />
+<br />
+<div id="mainbody">
+    @Html.Raw(Model.INVOICES_HTML.data)
+</div>
+<br />
+<br />
+<br />
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $("body").each(function() {
+            while(this.attributes.length > 0)
+                this.removeAttribute(this.attributes[0].name);
+            });
+        }); 
+    </script>
+}

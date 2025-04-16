@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="11.43mm" height="11.43mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 22.91 22.91"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="596" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Titillium Web">
+		<font-face-src>
+			<font-face-name name="Titillium Web Regular"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="+" horiz-adv-x="560" d="M54.9965 217.009l0 67.9802 189.001 0 0 195.011 69.9929 0 0 -195.011 191.013 0 0 -67.9802 -191.013 0 0 -197.023 -69.9929 0 0 197.023 -189.001 0z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Titillium Web";font-variant:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .fil2 {fill:none}
+    .fil1 {fill:#0A639A}
+    .fil0 {fill:#666666}
+    .fnt0 {font-weight:normal;font-size:7.07px;font-family:'Titillium Web'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1589116437312">
+   <g>
+    <path class="fil0" d="M7.07 16.69c0.02,0.13 0.66,0.68 0.79,0.79 2.03,1.65 5.02,1.63 7.07,0.02l0.72 -0.67c0.04,-0.04 0.05,-0.07 0.1,-0.11 -0.14,-1.32 -2.74,-2.14 -4.32,-2.14 -0.96,-0 -1.89,0.25 -2.68,0.55 -0.65,0.25 -1.63,0.82 -1.68,1.56z"/>
+    <path class="fil0" d="M11.17 8.86c-1.11,0.11 -2.08,1.12 -1.93,2.4 0.13,1.1 1.13,2.07 2.41,1.91 1.11,-0.14 2.04,-1.12 1.9,-2.4 -0.12,-1.11 -1.12,-2.05 -2.38,-1.92z"/>
+   </g>
+   <text x="14.75" y="11.41"  class="fil1 fnt0">+</text>
+  </g>
+  <rect class="fil2" width="22.91" height="22.91"/>
+ </g>
+</svg>

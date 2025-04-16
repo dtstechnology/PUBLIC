@@ -1,0 +1,838 @@
+﻿@model W_TGO_BILLS_ADD
+@{
+    ViewData["Title"] = "Yeni Fatura";
+}
+
+
+<div class="content-box">
+
+    <form id="billAddForm" class="formValidate" action="/bills/add">
+        <h5 class="form-header">
+            Yeni Fatura Oluştur
+        </h5>
+        <fieldset class="form-group">
+            <button class="save-submit btn btn-primary disabled" type="submit"> Kaydet (Ctrl+S) </button>
+            <button id="cariAraButton" class="btn btn-primary" data-target="#cariAraModal" data-toggle="modal" type="button">
+                Cari Seç (F4)
+                <i class="os-icon os-icon-users"></i>
+            </button>
+            <div aria-hidden="true" class="onboarding-modal modal fade animated" id="cariAraModal" role="dialog" tabindex="-1">
+                <div class="modal-dialog modal-lg modal-centered" role="document" style="min-width: 90%;min-height: 90%;">
+                    <div class="modal-content">
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Kapat</span><span class="os-icon os-icon-close"></span></button>
+                        <div class="">
+                            @* <div class="onboarding-media">
+                            <i class="os-icon os-icon-arrow-2-down" style="font-size: 100px;color: #047bf8;"></i>
+                            </div>*@
+                            <div class="onboarding-content with-gradient">
+                                <h4 class="onboarding-title">
+                                    Cari Seçim Ekranı
+                                </h4>
+                                <div class="onboarding-text">
+                                </div>
+
+                                <input asp-for="ACCOUNT.ACID" type="hidden" />
+                                <div class="table-responsive">
+                                    <table id="accountsDT" c="accounts" d="load" dsrc="@nameof(Model.ACCOUNT_LIST)" rol="selector" target="inputs" width="100%" class="dataTable table table-striped table-lightfont">
+                                        <thead>
+                                            <tr>
+                                                <th fsrc="@nameof(Model.ACCOUNT.COMPANYNAME)">Şirket Adı</th>
+                                                <th fsrc="@nameof(Model.ACCOUNT.NAME)">Ad</th>
+                                                <th fsrc="@nameof(Model.ACCOUNT.SURNAME)">Soyad</th>
+                                                <th fsrc="@nameof(Model.ACCOUNT.CITY)">Şehir</th>
+                                                <th fsrc="@nameof(Model.ACCOUNT.TAXOFFICE)">Vergi Dairesi</th>
+                                                <th fsrc="@nameof(Model.ACCOUNT.TAXNO)">Vergi No</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="element-wrapper">
+                    <div class="element-box">
+
+                        <h5 class="form-header">
+                            Fatura Bilgileri
+                        </h5>
+                        @*  <div class="form-desc">
+                        Yeni fatura oluşturmak için aşağıdaki alanları doldurabilirsiniz.
+                        </div>*@
+
+
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Fatura Türü</label>
+                                                <select asp-for="BILL.TIPI" class="form-control">
+                                                    <option value="Adet">
+                                                        Alış
+                                                    </option>
+                                                    <option value="Set">
+                                                        Satış
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Tarih </label>
+                                                <input asp-for="BILL.TARIH" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Para Birimi </label>
+                                                <select asp-for="BILL.PARABIRIMI" class="form-control" onChange="selectParaBirim(this)">
+                                                    <option value="TL">
+                                                        Türk Lirası
+                                                    </option>
+                                                    <option value="EUR">
+                                                        Euro
+                                                    </option>
+                                                    <option value="USD">
+                                                        Dolar
+                                                    </option>
+                                                    <option value="GBP">
+                                                        İngiliz Sterlini
+                                                    </option>
+                                                    <option value="JPY">
+                                                        Japon Yeni
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Döviz Kuru </label>
+                                                <input asp-for="BILL.DOVIZKURU" oninput="selectParaBirim(this)" class="form-control" data-error="Lütfen Alanı Doldurun" step="any" required="required" type="number">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Fatura Tipi</label>
+                                                <select asp-for="BILL.TURU" class="form-control" onChange="selectTur(this)">
+                                                    <option value="Satış">
+                                                        Satış
+                                                    </option>
+                                                    <option value="İade">
+                                                        İade
+                                                    </option>
+                                                    <option value="Tevkifat">
+                                                        Tevkifat
+                                                    </option>
+                                                    <option value="İstisna">
+                                                        İstisna
+                                                    </option>
+                                                    <option value="İhraç Kayıtlı">
+                                                        İhraç Kayıtlı
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="element-wrapper">
+                    <div class="element-box">
+
+                        <h5 class="form-header" style="display:flex; justify-content: space-between;">
+                            Cari Bilgileri
+
+                            @* <div class="form-buttons-w">
+                            <div class="col-sm-12">
+
+                            </div>
+                            </div>*@
+                        </h5>
+                        @*  <div class="form-desc">
+                        Cari bilgileri için aşağıdaki formu doldurun.
+                        </div>
+                        *@
+
+
+
+                        <div class="row">
+
+
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Vergi Dairesi </label>
+                                                <input asp-for="BILL.VERGIDAIRESI" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="">Vergi No / TCKN</label>
+                                                <input asp-for="BILL.VKNTCKN" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                <div name="barkod" class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Ad </label>
+                                                <input asp-for="BILL.AD" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="">Soyad</label>
+                                                <input asp-for="BILL.SOYAD" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Ünvan </label>
+                                                <input asp-for="BILL.UNVAN" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="element-wrapper">
+                    <div class="element-box">
+
+                        <h5 class="form-header">
+                            Adres Bilgileri
+                        </h5>
+                        @*    <div class="form-desc">
+                        Adres bilgileri için aşağıdaki formu doldurun
+                        </div>*@
+
+                        <div class="row">
+
+                            <div class="col-sm-12">
+                                <fieldset class="form-group">
+
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Ülke </label>
+                                                <input asp-for="BILL.ULKE" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for=""> Adres  </label>
+                                                @*<input asp-for="BILL.ADRES" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">*@
+                                                <textarea asp-for="BILL.ADRES" rows="10" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" style="height: 242px;"></textarea>
+                                                <div class="help-block form-text with-errors form-control-feedback"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-12">
+                <div class="element-wrapper">
+                    <div class="element-box">
+                        <h5 class="form-header">
+                            Mal Hizmet Bilgileri
+                        </h5>
+                        <div class="form-desc">
+                            Faturanıza eklemek istediğiniz mal ve hizmet bilgileri için aşağıdaki tabloyu kullanabilirsiniz.
+                        </div>
+                        <form id="malHizmetDTForm" class="formValidate">
+                            <div class="dts-transact">
+                                <button class="new-row mr-2 mb-2 btn btn-primary" type="button">
+                                    Boş Satır Ekle
+                                </button>
+                                <button class="remove mr-2 mb-2 btn btn-primary" type="button">
+                                    Seçili Satırları Sil
+                                </button>
+                                <button id="stokAraButton" class="mr-2 mb-2 btn btn-primary" data-target="#stokAraModal" data-toggle="modal" type="button">
+                                    Stoktan Ekle (F2)
+                                </button>
+                                <div aria-hidden="true" class="onboarding-modal modal fade animated" style="width:100vw;" id="stokAraModal" role="dialog" tabindex="-1">
+                                    <div class="modal-dialog modal-lg modal-centered" role="document" style="width:90vw; min-width: 90vw; min-height: 90vh;">
+                                        <div class="modal-content">
+                                            <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span class="close-label">Kapat</span><span class="os-icon os-icon-close"></span></button>
+                                            <div class="" style="height:90vh; width:90vw; overflow:scroll; ">
+                                                @* <div class="onboarding-media">
+                                                <i class="os-icon os-icon-arrow-2-down" style="font-size: 100px;color: #047bf8;"></i>
+                                                </div>*@
+                                                <div class="onboarding-content with-gradient">
+                                                    <h4 class="onboarding-title">
+                                                        Stoktan Seçim Ekranı
+                                                    </h4>
+                                                    <div class="onboarding-text">
+                                                    </div>
+                                                    <form id="stokSecModalForm" class="formValidate">
+                                                        <input asp-for="ACCOUNT.ACID" type="hidden" />
+                                                        <div class="table-responsive">
+                                                            <table id="stockDT" c="stock" d="load" dsrc="@nameof(Model.STOCK_LIST.STOCK_LIST)" rol="selector" target="malHizmetDT" width="100%" class="dataTable table table-striped table-lightfont">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th fsrc="@nameof(Model.STOCK_LIST.STOCK.STOKADI)" style="min-width: 30vw;">Stok Adı</th>
+                                                                        <th fsrc="@nameof(Model.STOCK_LIST.STOCK.URUNHIZMETTURU)">Ürün</th>
+                                                                        <th fsrc="@nameof(Model.STOCK_LIST.STOCK.STOKKODU)">Stok Kodu</th>
+                                                                        <th fsrc="@nameof(Model.STOCK_LIST.STOCK.MIKTAR)">Stoktaki Miktar</th>
+                                                                        <th fsrc="@nameof(Model.STOCK_LIST.STOCK.ALISFIYAT)">Alış Fiyat</th>
+                                                                        <th fsrc="@nameof(Model.STOCK_LIST.STOCK.SATISFIYAT)">Satış Fiyat</th>
+                                                                    </tr>
+                                                                </thead>
+                                                            </table>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="add-discount mr-2 mb-2 btn btn-primary" type="button">
+                                    İskonto Ekle
+                                </button>
+                            </div>
+                            <fieldset class="form-group">
+
+                                <div class="table-responsive">
+                                    <table id="malHizmetDT" c="stock" rol="malHizmetCalculator" dsrc="@nameof(Model.MALHIZMET_LIST)" width="100%" class="activeDataTable table table-striped table-lightfont">
+                                        <thead>
+                                            <tr>
+                                                <th fsrc="@nameof(Model.STOCK_LIST.STOCK.STID)"><input class="table-checkbox select-all" type="checkbox"></th>
+                                                <th typeof="text" fsrc="@nameof(Model.MALHIZMET.malHizmet)" style="min-width:20vw;">Mal Hizmet</th>
+                                                <th typeof="number" @*max*@ fsrc="@nameof(Model.MALHIZMET.miktar)">Miktar</th>
+                                                <th typeof="text" fsrc="@nameof(Model.MALHIZMET.birim)" style="min-width:100px;">Birim</th>
+                                                <th typeof="number" fsrc="@nameof(Model.MALHIZMET.birimFiyat)" style="min-width:60px;">Birim Fiyat</th>
+                                                <th typeof="number" fsrc="@nameof(Model.MALHIZMET.malHizmetTutari)">Mal Hizmet Tutarı</th>
+                                                <th typeof="number" fsrc="@nameof(Model.MALHIZMET.kdvOrani)">KDV Oranı</th>
+                                                <th typeof="number" fsrc="@nameof(Model.MALHIZMET.kdvTutari)">KDV Tutarı</th>
+                                                <th typeof="number" fsrc="@nameof(Model.MALHIZMET.iskontoOrani)" style="display:none;">İskonto Oranı</th>
+                                                <th typeof="number" fsrc="@nameof(Model.MALHIZMET.iskontoTutari)" style="display:none;">İskonto Tutarı</th>
+                                                <th typeof="number" hide fsrc="tevkifat" style="display:none;">TevkifatKodu</th>
+                                                <th typeof="number" hide fsrc="tevkifatOran" style="display:none;">Tevkifat Oran</th>
+                                                <th typeof="number" hide fsrc="tevkifatTutar" style="display:none;">Tevkifat Tutar</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+
+                                <br>
+                                <h5 class="form-header">
+                                    Not
+                                </h5>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for=""> Notunuzu Yazınız  </label>
+                                            @*<input asp-for="BILL.ADRES" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="text">*@
+                                            <textarea asp-for="BILL.NOTLAR" rows="10" class="form-control" data-error="Lütfen Alanı Doldurun" required="required" style="height: 242px;"></textarea>
+                                            <div class="help-block form-text with-errors form-control-feedback"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Mal/Hizmet Toplam Tutarı</label>
+                                                    <input asp-for="BILL.TOPLAMTUTAR" class="form-control" readonly data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="">Toplam İskonto</label>
+                                                    <input asp-for="BILL.TOPLAMISKONTO" class="form-control" readonly data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div name="barkod" class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Hesaplanan KDV </label>
+                                                    <input asp-for="BILL.HESAPLANANKDV" class="form-control" readonly data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for="">Tevkifata Tabi İşlem Tutar</label>
+                                                    <input asp-for="BILL.TEVKIFAT_TUTAR" class="form-control" readonly data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Tevkifata Tabi İşlem üzerinden Hes. KDV </label>
+                                                    <input asp-for="BILL.TEVKIFAT_KDV" class="form-control" readonly data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Hesaplanan KDV Tevkifat</label>
+                                                    <input asp-for="BILL.HESAPLANAN_KDV_TEVKIFAT" class="form-control" readonly data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Vergiler Dahil Toplam Tutar</label>
+                                                    <input asp-for="BILL.VERGILERDAHILTOPLAM" readonly class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <label for=""> Ödenecek Tutar </label>
+                                                    <input asp-for="BILL.ODENECEKTUTAR" readonly class="form-control" data-error="Lütfen Alanı Doldurun" required="required" type="number">
+                                                    <div class="help-block form-text with-errors form-control-feedback"></div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </form>
+</div>
+
+<style>
+    /*   #malHizmetDT tr td:not(.checkbox-column) {width: 100%;}*/
+    .hiddenColumn {
+        display: none;
+    }
+</style>
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function () {
+            selectParaBirim();
+        });
+
+        //function JsonSearch() {
+        //    json.map(c => c.STOKADI);
+        //    $.each(json, function (i, v) {
+        //        if (v.STOKKODU == "BX8071512400F") {
+        //            // found it...
+        //            console.log(v);
+        //            return false; // stops the loop
+        //        }
+        //    });
+        //    //Jquery Autocomplete
+        //    //let json = $('#stockDT').DataTable().data();
+        //    //var availableTags = json.map(c => c.STOKADI);;
+        //    //$("input[name=malHizmet]").autocomplete({
+        //    //    source: availableTags
+        //    //});
+        //}
+
+        $('.new-row').click(function () {
+            $("#malHizmetDT").DataTable().row.add({
+                "STID": "EXT",
+                "malHizmet": "Ürün Adı Giriniz",
+                "miktar": 0,
+                "birim": "Adet",
+                "birimFiyat": 0,
+                "iskontoOrani": 0,
+                "iskontoTutari": 0,
+                "malHizmetTutari": 0,
+                "kdvOrani": 0,
+                "kdvTutari": 0,
+                "tevkifat": "",
+                "tevkifatOran": 0,
+                "tevkifatTutar": 0
+            }).draw();
+            checkmalhizmetColumns();
+        })
+
+        $("#stockDT").on("select", function (e, selectedData, target) {
+            alertBox(true, "Ürün Eklendi (" + selectedData[0].STOKADI + ")");
+            debugger;
+
+
+            //var jsonData = actDT.DataTable().rows().data()[0];
+            //var x = Object.keys(obj);
+
+            target.DataTable().row.add({
+                "STID": selectedData[0].STID,
+                "malHizmet": selectedData[0].STOKADI,
+                "miktar": "",
+                "birim": selectedData[0].BIRIM,
+                "birimFiyat": selectedData[0].SATISFIYAT,
+                "iskontoOrani": 0,
+                "iskontoTutari": 0,
+                "malHizmetTutari": 0,
+                "kdvOrani": selectedData[0].KDVORAN,
+                "kdvTutari": 0
+            }).draw();
+            $('.close').click();
+
+            checkmalhizmetColumns();
+            debugger;
+
+            $(".editable-data").on("change paste keyup", function () {
+
+            });
+
+
+
+        });
+
+
+        $("#accountsDT").on("select", function (e, selectedData, actDT) {
+            alertBox(true, "(" + selectedData[0].COMPANYNAME + ") isimli Cari Eklendi ");
+            debugger;
+
+            $('#ACCOUNT_ACID').val(selectedData[0].ACID);
+            $('#BILL_VERGIDAIRESI').val(selectedData[0].TAXOFFICE);
+            $('#BILL_VKNTCKN').val(selectedData[0].TAXNO);
+            $('#BILL_AD').val(selectedData[0].NAME);
+            $('#BILL_SOYAD').val(selectedData[0].SURNAME);
+            $('#BILL_UNVAN').val(selectedData[0].COMPANYNAME);
+            $('#BILL_ULKE').val(selectedData[0].COUNTRY);
+            $('#BILL_ADRES').val(selectedData[0].ADDRESS);
+
+
+        })
+
+
+
+        function submitBeforeEvent(data) {
+
+            if (confirm("Fatura Kaydedilecek Devam Edilsin mi?")) {
+                let rows = $('#malHizmetDT tbody tr');
+                let arry = [];
+                for (let i = 0; i < rows.length; i++) {
+                    let arryRow = {};
+                    var cells = $($('#malHizmetDT > tbody  > tr')[i]).find("td");
+                    debugger;
+                    /*--------------------------CHECKBOX--------------------------*/
+                    var key = $(cells[0]).children().attr("name"),
+                        obj = {
+                            [key]: $(cells[0]).children().attr("data")
+                        };
+                    Object.assign(arryRow, obj);
+                    /*-----------------------------------------------------------*/
+                    for (let i = 1; i < cells.length; i++) {
+
+                        var key = $(cells[i]).children().attr("name"), obj = { [key]: $(cells[i]).children().val() };
+                        //var key = $(cells[i]).find("input").attr("name"), obj = { [key]: $(cells[i]).find("input").val() };
+                        Object.assign(arryRow, obj);
+                    }
+                    arry.push(arryRow);
+                }
+
+
+
+                var malHizmetCheck = true;
+                arry.forEach(function (item) {
+                    if (item.malHizmet == undefined) {
+                        malHizmetCheck = false;
+                    }
+                });
+
+                if(!malHizmetCheck)
+                {
+                    if (confirm("Mal Hizmet Eklenmedi Devam Edilsin mi?")) {
+                        //data = data + "&BILL.MALHIZMET=" + JSON.stringify($('#malHizmetDT').DataTable().rows().data().toArray()); //DATATABLE DATA PUSH
+                        data = data + "&BILL.MALHIZMET=" + JSON.stringify(arry);
+                        return data;
+                    }
+                    else {
+                        alertBox(false, "İşlem iptal edildi");
+                    }
+                }
+                else{
+                    data = data + "&BILL.MALHIZMET=" + JSON.stringify(arry);
+                    return data;
+                }
+
+
+            } else {
+                alertBox(false, "İşlem iptal edildi");
+            }
+
+        }
+
+
+        $('.add-discount').click(function () {
+            if ($('th[fsrc=iskontoOrani]').css('display') == "none") {
+                $('.add-discount')[0].innerText = "İskonto Çıkar";
+                iskontoShow();
+            }
+            else {
+                $('.add-discount')[0].innerText = "İskonto Ekle";
+                iskontoHide();
+            }
+        });
+
+        function checkmalhizmetColumns() {
+            iskontoCheck();
+            selectTur();
+        }
+
+        function iskontoCheck() {
+            if ($('th[fsrc=iskontoOrani]').css('display') == "none") {
+                iskontoHide();
+            }
+            else {
+                iskontoShow();
+            }
+        }
+
+        function iskontoHide() {
+            $($('input[name=iskontoOrani]')).parent().each(function () {
+                this.classList.add("hiddenColumn");
+            });
+            $($('input[name=iskontoTutari]')).parent().each(function () {
+                this.classList.add("hiddenColumn");
+            });
+
+            $('input[name=iskontoOrani]').hide();
+            $('input[name=iskontoTutari]').hide();
+            $('th[fsrc=iskontoTutari]').hide();
+            $('th[fsrc=iskontoOrani]').hide();
+            $('#malHizmetDT').DataTable().columns.adjust().draw();
+        }
+
+        function iskontoShow(e) {
+            $($('input[name=iskontoOrani]')).parent().each(function () {
+                this.classList.remove("hiddenColumn")
+            });
+            $($('input[name=iskontoTutari]')).parent().each(function () {
+                this.classList.remove("hiddenColumn")
+            });
+            $('input[name=iskontoOrani]').show();
+            $('input[name=iskontoTutari]').show();
+            $('th[fsrc=iskontoTutari]').show();
+            $('th[fsrc=iskontoOrani]').show();
+            $('#malHizmetDT').DataTable().columns.adjust().draw();
+        }
+
+        function checkRequiredAttr(e) {
+            var attr = e.attr('required');
+            if (typeof attr !== 'undefined' && attr !== false) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        function selectParaBirim() {
+            if ($('#BILL_PARABIRIMI').val() == "TL") {
+                alertBox(false, "Türk Lirası seçiliyken döviz girişi yapamazsınız.");
+                $('#BILL_DOVIZKURU').val("");
+                $('#BILL_DOVIZKURU').removeAttr('required');
+            }
+            else {
+                $('#BILL_DOVIZKURU').attr('required', 'required');
+            }
+
+
+        }
+
+        function selectTur(e) {
+            if ($('#BILL_TURU').val() == "Tevkifat") {
+                tevkifatShow();
+                //$('#malHizmetDT>thead>tr').append('<th fsrc="tevkifat"> Tevkifat Kodu </th>');
+                //dataTable.refresh($('#malHizmetDT'));
+                //$("#malHizmetDT>tbody>tr").each(function () {
+                //    $(this).append('<td>'+
+                //    //'<input name="tevkifat" class="form-control editable-cell " data-error="Lütfen Alanı Doldurun" required="required" type="number" name="kdvTutari" style="min-width:100px;" value="0"><div style="display:none;">" 0"</div></td>');
+                //        '<select class="form-control editable-cell" name="tevkifat" style="min-width:100px;"><option value="">-----</option><option value="601">601 - Yapım İşleri ile Bu İşlerle Birlikte İfa Edilen Mühendislik-Mimarlık ve Etüt-Proje Hizmetleri [KDVGUT-(I/C-2.1.3.2.1)]</option><option value="602">602 - Etüt, plan-proje, danışmanlık, denetim vb</option><option value="603">603 - Makine, Teçhizat, Demirbaş ve Taşıtlara Ait Tadil, Bakım ve Onarım Hizmetleri [KDVGUT- (I/C-2.1.3.2.3)]</option><option value="604">604 - Yemek servis hizmeti</option><option value="605">605 - Organizasyon hizmeti</option><option value="606">606 - İşgücü temin hizmetleri</option><option value="607">607 - Özel güvenlik hizmeti</option><option value="608">608 - Yapı denetim hizmetleri</option><option value="609">609 - Fason Olarak Yaptırılan Tekstil ve Konfeksiyon İşleri, Çanta ve Ayakkabı Dikim İşleri ve Bu İşlere Aracılık Hizmetleri [KDVGUT-(I/C-2.1.3.2.7)]</option><option value="610">610 - Turistik mağazalara verilen müşteri bulma/ götürme hizmetleri</option><option value="611">611 - Spor kulüplerinin yayın, reklam ve isim hakkı gelirlerine konu işlemleri</option><option value="612">612 - Temizlik Hizmeti [KDVGUT-(I/C-2.1.3.2.10)]</option><option value="613">613 - Çevre, Bahçe ve Bakım Hizmetleri [KDVGUT-(I/C-2.1.3.2.11)]</option><option value="614">614 - Servis taşımacıliğı</option><option value="615">615 - Her Türlü Baskı ve Basım Hizmetleri [KDVGUT-(I/C-2.1.3.2.12)]</option><option value="616">616 - Diğer Hizmetler [KDVGUT-(I/C-2.1.3.2.13)]</option><option value="617">617 - Hurda metalden elde edilen külçe teslimleri</option><option value="618">618 - Hurda Metalden Elde Edilenler Dışındaki Bakır, Çinko, Demir Çelik, Alüminyum ve Kurşun Külçe Teslimi [KDVGUT-(I/C-2.1.3.3.1)]</option><option value="619">619 - Bakir, çinko ve alüminyum ürünlerinin teslimi</option><option value="620">620 - istisnadan vazgeçenlerin hurda ve atık teslimi</option><option value="621">621 - Metal, plastik, lastik, kauçuk, kâğit ve cam hurda ve atıklardan elde edilen hammadde teslimi</option><option value="622">622 - Pamuk, tiftik, yün ve yapaği ile ham post ve deri teslimleri</option><option value="623">623 - Ağaç ve orman ürünleri teslimi</option><option value="624">624 - Yük Taşımacılığı Hizmeti [KDVGUT-(I/C-2.1.3.2.11)]</option><option value="625">625 - Ticari Reklam Hizmetleri [KDVGUT-(I/C-2.1.3.2.15)]</option><option value="626">626 - Diğer Teslimler [KDVGUT-(I/C-2.1.3.3.7.)]</option><option value="627">627 - Demir-Çelik Ürünlerinin Teslimi [KDVGUT-(I/C-2.1.3.3.8)]</option><option value="627-Ex">627 - Demir-Çelik Ürünlerinin Teslimi [KDVGUT-(I/C-2.1.3.3.8)] (01/11/2022 tarihi öncesi)</option><option value="801">801 - Yapım İşleri ile Bu İşlerle Birlikte İfa Edilen Mühendislik-Mimarlık ve Etüt-Proje Hizmetleri[KDVGUT-(I/C-2.1.3.2.1)]</option><option value="802">802 - Etüt, Plan-Proje, Danışmanlık, Denetim ve Benzeri Hizmetler[KDVGUT-(I/C-2.1.3.2.2)]</option><option value="803">803 - Makine, Teçhizat, Demirbaş ve Taşıtlara Ait Tadil, Bakım ve Onarım Hizmetleri[KDVGUT- (I/C-2.1.3.2.3)]</option><option value="804">804 - Yemek Servis Hizmeti[KDVGUT-(I/C-2.1.3.2.4)]</option><option value="805">805 - Organizasyon Hizmeti[KDVGUT-(I/C-2.1.3.2.4)]</option><option value="806">806 - İşgücü Temin Hizmetleri[KDVGUT-(I/C-2.1.3.2.5)]</option><option value="807">807 - Özel Güvenlik Hizmeti[KDVGUT-(I/C-2.1.3.2.5)]</option><option value="808">808 - Yapı Denetim Hizmetleri[KDVGUT-(I/C-2.1.3.2.6)]</option><option value="809">809 - Fason Olarak Yaptırılan Tekstil ve Konfeksiyon İşleri, Çanta ve Ayakkabı Dikim İşleri ve Bu İşlere Aracılık Hizmetleri[KDVGUT-(I/C-2.1.3.2.7)]</option><option value="810">810 - Turistik Mağazalara Verilen Müşteri Bulma/ Götürme Hizmetleri[KDVGUT-(I/C-2.1.3.2.8)]</option><option value="811">811 - Spor Kulüplerinin Yayın, Reklâm ve İsim Hakkı Gelirlerine Konu İşlemleri[KDVGUT-(I/C-2.1.3.2.9)]</option><option value="812">812 - Temizlik Hizmeti[KDVGUT-(I/C-2.1.3.2.10)]</option><option value="813">813 - Çevreve Bahçe Bakım Hizmetleri[KDVGUT-(I/C-2.1.3.2.10)]</option><option value="814">814 - Servis Taşımacılığı Hizmeti[KDVGUT-(I/C-2.1.3.2.11)]</option><option value="815">815 - Her Türlü Baskı ve Basım Hizmetleri[KDVGUT-(I/C-2.1.3.2.12)]</option><option value="816">816 - Hurda Metalden Elde Edilen Külçe Teslimleri[KDVGUT-(I/C-2.1.3.3.1)]</option><option value="817">817 - Hurda Metalden Elde Edilenler Dışındaki Bakır, Çinko, Demir Çelik, Alüminyum ve Kurşun Külçe Teslimi [KDVGUT-(I/C-2.1.3.3.1)]</option><option value="818">818 - Bakır, Çinko, Alüminyum ve Kurşun Ürünlerinin Teslimi[KDVGUT-(I/C-2.1.3.3.2)]</option><option value="819">819 - İstisnadan Vazgeçenlerin Hurda ve Atık Teslimi[KDVGUT-(I/C-2.1.3.3.3)]</option><option value="820">820 - Metal, Plastik, Lastik, Kauçuk, Kâğıt ve Cam Hurda ve Atıklardan Elde Edilen Hammadde Teslimi[KDVGUT-(I/C-2.1.3.3.4)]</option><option value="821">821 - Pamuk, Tiftik, Yün ve Yapağı İle Ham Post ve Deri Teslimleri[KDVGUT-(I/C-2.1.3.3.5)]</option><option value="822">822 - Ağaç ve Orman Ürünleri Teslimi[KDVGUT-(I/C-2.1.3.3.6)]</option><option value="823">823 - Yük Taşımacılığı Hizmeti [KDVGUT-(I/C-2.1.3.2.11)]</option><option value="824">824 - Ticari Reklam Hizmetleri [KDVGUT-(I/C-2.1.3.2.15)]</option><option value="825">825 - Demir-Çelik Ürünlerinin Teslimi [KDVGUT-(I/C-2.1.3.3.8)]</option></select></td>');
+                //});
+                //dataTable.destroy($('#malHizmetDT'));
+                //$('#malHizmetDT th[fsrc="tevkifat"]').remove();
+                //$("#malHizmetDT>tbody").empty();
+                //$("#malHizmetDT>thead>tr").append('<th fsrc="tevkifat"> Tevkifat Kodu </th>');
+                //dataTable.create($('#malHizmetDT'));
+            }
+            else {
+                tevkifatHide();
+                //dataTable.destroy($('#malHizmetDT'));
+                //$('select[name="tevkifat"]').each(function () {
+                //    $(this).closest('td').remove();
+                //});
+                //$('#malHizmetDT th[fsrc="tevkifat"]').remove();
+                //$("#malHizmetDT>tbody").empty();
+                //dataTable.create($('#malHizmetDT'));
+            }
+        }
+
+        function tevkifatHide() {
+            $($('select[name=tevkifat]')).each(function () {
+                this.value = "";
+                checkValue(this);
+            });
+            $($('select[name=tevkifat]')).parent().each(function () {
+                this.classList.add("hiddenColumn")
+            });
+            $($('input[name=tevkifatOran]')).parent().each(function () {
+                this.classList.add("hiddenColumn")
+            });
+            $($('input[name=tevkifatTutar]')).parent().each(function () {
+                this.classList.add("hiddenColumn")
+            });
+            $('select[name=tevkifat]').hide();
+            $('th[fsrc=tevkifat]').hide();
+            $('input[name=tevkifatOran]').hide();
+            $('th[fsrc=tevkifatOran]').hide();
+            $('input[name=tevkifatTutar]').hide();
+            $('th[fsrc=tevkifatTutar]').hide();
+            $('#malHizmetDT').DataTable().columns.adjust().draw();
+        }
+
+        function tevkifatShow() {
+            $($('select[name=tevkifat]')).parent().each(function () {
+                this.classList.remove("hiddenColumn")
+            });
+            $($('input[name=tevkifatOran]')).parent().each(function () {
+                this.classList.remove("hiddenColumn")
+            });
+            $($('input[name=tevkifatTutar]')).parent().each(function () {
+                this.classList.remove("hiddenColumn")
+            });
+            $('select[name=tevkifat]').show();
+            $('th[fsrc=tevkifat]').show();
+            $('input[name=tevkifatOran]').show();
+            $('th[fsrc=tevkifatOran]').show();
+            $('input[name=tevkifatTutar]').show();
+            $('th[fsrc=tevkifatTutar]').show();
+            $('#malHizmetDT').DataTable().columns.adjust().draw();
+        }
+
+
+        $('#stokAraModal').on('shown.bs.modal', function () {
+            $('input[aria-controls=stockDT]').val("");
+            $('input[aria-controls=stockDT]').focus();
+        });
+
+        $('#cariAraModal').on('shown.bs.modal', function () {
+            $('input[aria-controls=accountsDT]').val("");
+            $('input[aria-controls=accountsDT]').focus();
+        });
+
+        $("#stokAraModal").on('hidden.bs.modal', function () {
+            focusTimer($('input[name=miktar]').last());
+            $('input[name=miktar]').last()[0].scrollIntoView();
+            //$('input[name=malHizmet]').last().trigger("focus")
+            //$('input[name=malHizmet]').last().trigger("select")
+        });
+
+        var timer;
+
+        function focusTimer(e) {
+            timer = setTimeout(function () {
+                e.focus();
+                e.select();
+            }, 500)
+        }
+
+
+
+        dataTable.create($('#accountsDT'));
+        dataTable.create($('#stockDT'));
+        dataTable.create($('#malHizmetDT'));
+
+
+
+    </script>
+
+}

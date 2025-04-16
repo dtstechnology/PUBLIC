@@ -1,0 +1,492 @@
+﻿@section Styles {
+
+}
+@model DTS.Logic.Layer.ViewModels.W_TGO_EARDASHBOARD
+
+@{
+    ViewData["Title"] = "Gösterge Paneli";
+}
+<div class="content-box">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="element-wrapper">
+                <div class="element-actions">
+                    <form class="form-inline justify-content-sm-end">
+                        <select class="form-control form-control-sm">
+                            <option value="Pending">
+                                Bugün
+                            </option>
+                            <option value="Active">
+                                Bu Hafta
+                            </option>
+                            <option value="Cancelled">
+                                Bu Ay
+                            </option>
+                        </select>
+                    </form>
+                </div>
+                <h6 class="element-header">
+                    Gösterge Paneli
+                </h6>
+                <div class="element-content">
+                    <div class="row">
+                        <div class="col-sm-4 col-xxxl-3">
+                            <a class="element-box el-tablo" href="#">
+                                <div class="label">
+                                    Null
+                                </div>
+                                <div class="value">
+                                    00
+                                </div>
+                                <div class="trending trending-up-basic">
+                                    <span>0%</span><i class="os-icon os-icon-arrow-up2"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 col-xxxl-3">
+                            <a class="element-box el-tablo" href="#">
+                                <div class="label">
+                                    Null
+                                </div>
+                                <div class="value">
+                                    00
+                                </div>
+                                <div class="trending trending-down-basic">
+                                    <span>0%</span><i class="os-icon os-icon-arrow-down"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-sm-4 col-xxxl-3">
+                            <a class="element-box el-tablo" href="#">
+                                <div class="label">
+                                    Null
+                                </div>
+                                <div class="value">
+                                    00
+                                </div>
+                                <div class="trending trending-down-basic">
+                                    <span>9%</span><i class="os-icon os-icon-arrow-down"></i>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="d-none d-xxxl-block col-xxxl-3">
+                            <a class="element-box el-tablo" href="#">
+                                <div class="label">
+                                    Null
+                                </div>
+                                <div class="value">
+                                    ₺00
+                                </div>
+                                <div class="trending trending-up-basic">
+                                    <span>00%</span><i class="os-icon os-icon-arrow-up2"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="d-xxxl-block col-xxxl-6">
+            <div class="element-wrapper">
+                <h6 class="element-header">
+                    Null
+                </h6>
+                <div class="element-box">
+                    <div class="table-responsive">
+                        @*<table class="table table-lightborder">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Hesap
+                                    </th>
+                                    <th>
+                                        Ürün
+                                    </th>
+                                    <th class="text-center">
+                                        İşlem Türü
+                                    </th>
+                                    <th class="text-right">
+                                        Tutar
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="nowrap">
+                                        Novus Boyutsal Harf
+                                    </td>
+                                    <td>
+                                        <div class="cell-image-list">
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio9.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio2.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio12.jpg)"></div>
+                                            
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="status-pill green" data-title="Complete" data-toggle="tooltip">   </div>
+                                    </td>
+                                    <td class="text-right">
+                                        ₺354
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="nowrap">
+                                        DTS Technology
+                                    </td>
+                                    <td>
+                                        <div class="cell-image-list">
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio9.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio2.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio12.jpg)"></div>
+                                            
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="status-pill green" data-title="Complete" data-toggle="tooltip">   </div>
+                                    </td>
+                                    <td class="text-right">
+                                        ₺354
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="nowrap">
+                                        TGO Spare Parts
+                                    </td>
+                                    <td>
+                                        <div class="cell-image-list">
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio9.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio2.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio12.jpg)"></div>
+                                            
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="status-pill green" data-title="Complete" data-toggle="tooltip">   </div>
+                                    </td>
+                                    <td class="text-right">
+                                        ₺354
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="nowrap">
+                                        Media Markt
+                                    </td>
+                                    <td>
+                                        <div class="cell-image-list">
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio9.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio2.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio12.jpg)"></div>
+
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="status-pill green" data-title="Complete" data-toggle="tooltip">   </div>
+                                    </td>
+                                    <td class="text-right">
+                                        ₺354
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td class="nowrap">
+                                        Vatan Bilgisayar
+                                    </td>
+                                    <td>
+                                        <div class="cell-image-list">
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio9.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio2.jpg)"></div>
+                                            <div class="cell-img" style="background-image: url(../../img/portfolio12.jpg)"></div>
+                                            
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="status-pill green" data-title="Complete" data-toggle="tooltip">   </div>
+                                    </td>
+                                    <td class="text-right">
+                                        ₺354
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>*@
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="d-xxxl-block col-xxxl-6">
+            <!--START - Questions per Product-->
+            <div class="element-wrapper">
+                <div class="element-actions">
+                    <form class="form-inline justify-content-sm-end">
+                        <select class="form-control form-control-sm rounded">
+                            <option value="Pending">
+                                Bugün
+                            </option>
+                            <option value="Active">
+                                Bu Hafta
+                            </option>
+                            <option value="Cancelled">
+                                Bu Ay
+                            </option>
+                        </select>
+                    </form>
+                </div>
+                <h6 class="element-header">
+                    Null
+                </h6>
+                <div class="element-box">
+                    <div class="os-progress-bar primary">
+                        <div class="bar-labels">
+                            <div class="bar-label-left">
+                                <span class="bigger">Null Product </span>
+                            </div>
+                            <div class="bar-label-right">
+                                <span class="info"> 00 </span>
+                            </div>
+                        </div>
+                        <div class="bar-level-1" style="width: 100%">
+                            <div class="bar-level-2" style="width: 70%">
+                                <div class="bar-level-3" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                 @*   <div class="os-progress-bar primary">
+                        <div class="bar-labels">
+                            <div class="bar-label-left">
+                                <span class="bigger">
+                                    MacBook Air MGN63TU/A M1 8Gb-256GbSsd
+                                </span>
+                            </div>
+                            <div class="bar-label-right">
+                                <span class="info">7 kaldı</span>
+                            </div>
+                        </div>
+                        <div class="bar-level-1" style="width: 100%">
+                            <div class="bar-level-2" style="width: 40%">
+                                <div class="bar-level-3" style="width: 20%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="os-progress-bar primary">
+                        <div class="bar-labels">
+                            <div class="bar-label-left">
+                                <span class="bigger">
+                                    Microsoft Bluetooth Mouse Siyah
+                                </span>
+                            </div>
+                            <div class="bar-label-right">
+                                <span class="info">12 kaldı</span>
+                            </div>
+                        </div>
+                        <div class="bar-level-1" style="width: 100%">
+                            <div class="bar-level-2" style="width: 60%">
+                                <div class="bar-level-3" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    *@
+                    <div class="mt-4 border-top pt-3">
+                         
+                        <h6 class="element-box-header">
+                            Null Graphic
+                        </h6>
+                        <div class="el-chart-w">
+                            <canvas data-chart-data="13,28,19,24,43,49,40,35,42,46,38,32,45" height="50" id="liteLineChartV3" width="300"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END - Questions per product                  -->
+        </div>
+    </div>
+    
+
+    <div class="row pt-4">
+       @* <div class="col-sm-12">
+            <!--START - Recent Ticket Comments-->
+            <div class="element-wrapper">
+                <h6 class="element-header">
+                    Null Sales
+                </h6>
+                <div class="element-box-tp">
+                    <div class="table-responsive">
+                        <table class="table table-padded">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        Hesap
+                                    </th>
+                                    <th>
+                                        Şehir
+                                    </th>
+                                    <th class="text-center">
+                                        Miktar
+                                    </th>
+                                    <th>
+                                        Sipariş Toplamı
+                                    </th>
+                                    <th>
+                                        İşlem Türü
+                                    </th>
+                                    <th>
+                                        İşlemler
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                 @{
+                                    foreach (var item in Model.CRS_LIST)
+                                    {
+                                <tr>
+                                    <td class="text-center">
+                                        <input class="form-control" type="checkbox">
+                                    </td>
+                                    <td>
+                                        <div class="user-with-avatar">
+                                            <img alt="" src="~/src/Profile/Shared/profileDefault.jpg">
+                                                    <span>@item.CRNE</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="smaller lighter">
+                                                    @item.CREL
+                                        </div>
+                                    </td>
+                                    <td>
+                                                @item.CRID
+                                    </td>
+                                    <td class="text-center">
+                                                <a class="badge badge-success-inverted" href="">Satış</a>
+                                    </td>
+                                    <td class="nowrap">
+                                              
+                                    </td>
+                                    <td class="row-actions">
+                                        <a href="#"><i class="os-icon os-icon-grid-10"></i></a><a href="#"><i class="os-icon os-icon-ui-44"></i></a><a class="danger" href="#"><i class="os-icon os-icon-ui-15"></i></a>
+                                    </td>
+                                </tr>
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!--END - Recent Ticket Comments-->
+        </div>*@
+    </div>
+
+
+</div>
+
+
+
+@*
+<div class="content-panel">
+    <div class="content-panel-close">
+        <i class="os-icon os-icon-close"></i>
+    </div>
+    <div class="element-wrapper">
+        <h6 class="element-header">
+            Hızlı Erişim
+        </h6>
+        <div class="element-box-tp">
+            <div class="el-buttons-list full-width">
+                <a class="btn btn-white btn-sm" href="#"><i class="os-icon os-icon-delivery-box-2"></i><span>Yeni Ürün Ekle</span></a><a class="btn btn-white btn-sm" href="#"><i class="os-icon os-icon-window-content"></i><span>Yeni Cari Hesap Ekle</span></a><a class="btn btn-white btn-sm" href="#"><i class="os-icon os-icon-wallet-loaded"></i><span>Yeni Stok Girişi</span></a>
+            </div>
+        </div>
+    </div>
+  
+    <!--------------------
+    START - Team Members
+    -------------------->
+    <div class="element-wrapper">
+        <h6 class="element-header">
+            Takım Arkadaşları
+        </h6>
+        <div class="element-box-tp">
+            <div class="input-search-w">
+                <input class="form-control rounded bright" placeholder="Ara..." type="search">
+            </div>
+            <div class="users-list-w">
+                <div class="user-w with-status status-green">
+                    <div class="user-avatar-w">
+                        <div class="user-avatar">
+                            <img alt="" src="~/img/avatar1.jpg">
+                        </div>
+                    </div>
+                    <div class="user-name">
+                        <h6 class="user-title">
+                            Melih TUNA
+                        </h6>
+                        <div class="user-role">
+                            Account Manager
+                        </div>
+                    </div>
+                    <a class="user-action" href="users_profile_small.html">
+                        <div class="os-icon os-icon-email-forward"></div>
+                    </a>
+                </div>
+                <div class="user-w with-status status-green">
+                    <div class="user-avatar-w">
+                        <div class="user-avatar">
+                            <img alt="" src="~/img/avatar2.jpg">
+                        </div>
+                    </div>
+                    <div class="user-name">
+                        <h6 class="user-title">
+                            Yılmaz İÇYER
+                        </h6>
+                        <div class="user-role">
+                            Administrator
+                        </div>
+                    </div>
+                    <a class="user-action" href="users_profile_small.html">
+                        <div class="os-icon os-icon-email-forward"></div>
+                    </a>
+                </div>
+                <div class="user-w with-status status-red">
+                    <div class="user-avatar-w">
+                        <div class="user-avatar">
+                            <img alt="" src="~/img/avatar3.jpg">
+                        </div>
+                    </div>
+                    <div class="user-name">
+                        <h6 class="user-title">
+                            Ramazan TAHA
+                        </h6>
+                        <div class="user-role">
+                            HR Manger
+                        </div>
+                    </div>
+                    <a class="user-action" href="users_profile_small.html">
+                        <div class="os-icon os-icon-email-forward"></div>
+                    </a>
+                </div>
+                <div class="user-w with-status status-green">
+                    <div class="user-avatar-w">
+                        <div class="user-avatar">
+                            <img alt="" src="~/img/avatar4.jpg">
+                        </div>
+                    </div>
+                    <div class="user-name">
+                        <h6 class="user-title">
+                         </h6>
+                        <div class="user-role">
+                            HR Manger
+                        </div>
+                    </div>
+                    <a class="user-action" href="users_profile_small.html">
+                        <div class="os-icon os-icon-email-forward"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--------------------
+    END - Team Members
+    -------------------->
+</div>*@

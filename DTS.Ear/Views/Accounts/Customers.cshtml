@@ -1,0 +1,343 @@
+﻿@model List<W_TGO_ACNTS>
+@{
+    ViewData["Title"] = "Müşteriler";
+}
+
+<style>
+    .ae-list-w {
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .ae-content-w {
+        height: 100vh;
+        overflow-y: scroll;
+    }
+</style>
+
+
+<div class="content-box" style="padding:0;">
+    <div class="app-email-w">
+        <div class="app-email-i">
+
+            <!--------------------
+            START - Email Messages List
+            -------------------->
+            <div class="ae-list-w">
+                <div class="ael-head">
+                    <div class="actions-left">
+                        <select>
+                            <option>
+                                Tarihe Göre Sıralı
+                            </option>
+                        </select>
+                    </div>
+                    <div class="actions-right">
+                        <a href="#"><i class="os-icon os-icon-ui-37"></i></a><a href="#"><i class="os-icon os-icon-grid-18"></i></a>
+                    </div>
+                </div>
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="ae-list">
+                            <div class="ae-item with-status  status-green">
+                                <div class="aei-image">
+                                    <div class="user-avatar-w">
+                                        <img alt="" src="~/src/Profile/Shared/profileDefault.jpg">
+                                    </div>
+                                </div>
+                                <div class="aei-content"> 
+                                    <h6 class="aei-title">
+                                        @item.COMPANYNAME
+                                    </h6>
+                                    <div class="aei-sub-title">
+                                        @item.NAME @item.SURNAME
+                                    </div>
+                                    <div class="aei-text"> 
+                                        @item.PHONE / @item.EMAIL
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                }
+                <a class="ae-load-more" href="#"><span>Daha Fazla Mesaj Yükle</span></a>
+            </div>
+            <!--------------------
+            END - Email Messages List
+            -------------------->
+            <div class="ae-content-w">
+
+                <div class="content-box" style="padding:0;">
+                    <div class="element-wrapper">
+                        <div class="user-profile">
+                            <div class="up-head-w" style="/*background-image:url(../../img/profile_bg1.jpg)*/">
+                                <div class="up-social">
+                                    <a href="#"><i class="os-icon os-icon-twitter"></i></a><a href="#"><i class="os-icon os-icon-facebook"></i></a>
+                                </div>
+                                <div class="up-main-info" style="background: linear-gradient(to bottom right, #88d5bc, #012042);">
+                                    <div class="user-avatar-w">
+                                        <div class="user-avatar">
+                                            <img alt="" src="~/src/Profile/Shared/profileDefault.jpg">
+                                        </div>
+                                    </div>
+                                    <h1 class="up-header">
+                                        @Model[0].NAME @Model[0].SURNAME
+                                    </h1>
+                                    <h5 class="up-sub-header">
+                                        @Model[0].COMPANYNAME
+                                    </h5>
+                                </div>
+                                <svg class="decor" width="842px" height="219px" viewBox="0 0 842 219" preserveAspectRatio="xMaxYMax meet" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g transform="translate(-381.000000, -362.000000)" fill="#FFFFFF"><path class="decor-path" d="M1223,362 L1223,581 L381,581 C868.912802,575.666667 1149.57947,502.666667 1223,362 Z"></path></g></svg>
+                            </div>
+                            <div class="up-controls">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="value-pair">
+                                            <div class="label">
+                                                Durum:
+                                            </div>
+                                            <div class="value badge badge-pill badge-success">
+                                                Aktif
+                                            </div>
+                                        </div>
+                                        <div class="value-pair">
+                                            <div class="label">
+                                                İlk Çalışma Tarihi:
+                                            </div>
+                                            <div class="value">
+                                                2011
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 text-right">
+                                        @*<a class="btn btn-primary btn-sm" href=""><i class="os-icon os-icon-link-3"></i><span>Add to Friends</span></a><a class="btn btn-secondary btn-sm" href=""><i class="os-icon os-icon-email-forward"></i><span>Send Message</span></a>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="up-contents">
+                                <h5 class="element-header">
+                                    Aylık Profil İstatistiği
+                                </h5>
+                                <div class="row m-b">
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-sm-6 b-r b-b">
+                                                <div class="el-tablo centered padded">
+                                                    <div class="value">
+                                                        3814
+                                                    </div>
+                                                    <div class="label">
+                                                        Adet Ürün Satıldı
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 b-b b-r">
+                                                <div class="el-tablo centered padded">
+                                                    <div class="value">
+                                                        475
+                                                    </div>
+                                                    <div class="label">
+                                                        Adet Ürün Alındı
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-6 b-r">
+                                                <div class="el-tablo centered padded">
+                                                    <div class="value">
+                                                        ₺95
+                                                    </div>
+                                                    <div class="label">
+                                                        Ortalama Günlük Kazanç
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 b-r">
+                                                <div class="el-tablo centered padded">
+                                                    <div class="value">
+                                                        12
+                                                    </div>
+                                                    <div class="label">
+                                                        Products
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="padded">
+                                            <div class="element-info-with-icon smaller">
+                                                <div class="element-info-icon">
+                                                    <div class="os-icon os-icon-bar-chart-stats-up"></div>
+                                                </div>
+                                                <div class="element-info-text">
+                                                    <h5 class="element-inner-header">
+                                                        Aylık Gelir
+                                                    </h5>
+                                                    <div class="element-inner-desc">
+                                                        Her ay hesaplanır
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="el-chart-w">
+                                                <canvas height="130" id="liteLineChart" width="300"></canvas>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="os-tabs-w">
+                                    <div class="os-tabs-controls">
+                                        <ul class="nav nav-tabs bigger">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" data-toggle="tab" href="#tab_overview">Cari Hesap Hareketleri</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#tab_sales">Günlük Satış</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_overview">
+                                            <div class="timed-activities padded">
+                                                <div class="timed-activity">
+                                                    <div class="ta-date">
+                                                        <span>21st Jan, 2017</span>
+                                                    </div>
+                                                    <div class="ta-record-w">
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>11:55</strong> am
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>450</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Ödeme Yapıldı
+                                                            </div>
+                                                        </div>
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>2:34</strong> pm
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>250</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Satış Yapıldı
+                                                            </div>
+                                                        </div>
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>7:12</strong> pm
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>320</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Alım Yapıldı
+                                                            </div>
+                                                        </div>
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>9:39</strong> pm
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>110</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Ödeme Alındı
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="timed-activity">
+                                                    <div class="ta-date">
+                                                        <span>20st Jan, 2017</span>
+                                                    </div>
+                                                    <div class="ta-record-w">
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>11:55</strong> am
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>230</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Ödeme Yapıldı
+                                                            </div>
+                                                        </div>
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>2:34</strong> pm
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>450</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Satış Yapıldı
+                                                            </div>
+                                                        </div>
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>7:12</strong> pm
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>560</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Alım Yapıldı
+                                                            </div>
+                                                        </div>
+                                                        <div class="ta-record">
+                                                            <div class="ta-timestamp">
+                                                                <strong>9:39</strong> pm
+                                                            </div>
+                                                            <div class="ta-timestamp">
+                                                                <strong>1070</strong> ₺
+                                                            </div>
+                                                            <div class="ta-activity">
+                                                                Ödeme Alındı
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab_sales">
+                                            <div class="el-tablo">
+                                                <div class="label">
+                                                    Satış
+                                                </div>
+                                                <div class="value">
+                                                    12
+                                                </div>
+                                            </div>
+                                            <div class="el-chart-w">
+                                                <canvas height="150px" id="lineChart" width="600px"></canvas>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="tab_conversion"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>

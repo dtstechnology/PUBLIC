@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTS.Ear", "DTS.Ear\DTS.Ear.csproj", "{6E6DE665-FE0C-47C2-8CFD-F828BBE7AFB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Access.Layer", "Data.Access.Layer\Data.Access.Layer.csproj", "{952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.MySQL", "Data.MySQL\Data.MySQL.csproj", "{0CBE5AF6-D1AD-4560-B38C-7D76D6C0118C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTS.Logic.Layer", "DTS.Logic.Layer\DTS.Logic.Layer.csproj", "{3AEDB376-8824-442A-881C-40A3C69A20CA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6} = {952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTS.Ear.Library", "DTS.Ear.Library\DTS.Ear.Library\DTS.Ear.Library.csproj", "{A168676D-7369-47B8-A300-65D7804615EE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTS.Core", "DTS.Core\DTS.Core.csproj", "{7386146A-4D0C-43CA-9D45-5582BC995003}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E6DE665-FE0C-47C2-8CFD-F828BBE7AFB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E6DE665-FE0C-47C2-8CFD-F828BBE7AFB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E6DE665-FE0C-47C2-8CFD-F828BBE7AFB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E6DE665-FE0C-47C2-8CFD-F828BBE7AFB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{952F65F9-3C04-4E6B-A329-A6CCDDD3E3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CBE5AF6-D1AD-4560-B38C-7D76D6C0118C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CBE5AF6-D1AD-4560-B38C-7D76D6C0118C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CBE5AF6-D1AD-4560-B38C-7D76D6C0118C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CBE5AF6-D1AD-4560-B38C-7D76D6C0118C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AEDB376-8824-442A-881C-40A3C69A20CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AEDB376-8824-442A-881C-40A3C69A20CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AEDB376-8824-442A-881C-40A3C69A20CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AEDB376-8824-442A-881C-40A3C69A20CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A168676D-7369-47B8-A300-65D7804615EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A168676D-7369-47B8-A300-65D7804615EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A168676D-7369-47B8-A300-65D7804615EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A168676D-7369-47B8-A300-65D7804615EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7386146A-4D0C-43CA-9D45-5582BC995003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7386146A-4D0C-43CA-9D45-5582BC995003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7386146A-4D0C-43CA-9D45-5582BC995003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7386146A-4D0C-43CA-9D45-5582BC995003}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CCF26486-433F-4193-B657-A9C7AF71AD94}
+	EndGlobalSection
+EndGlobal

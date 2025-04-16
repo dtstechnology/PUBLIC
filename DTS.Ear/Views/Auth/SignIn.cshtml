@@ -1,0 +1,74 @@
+﻿<head>
+    <link href="/css/Auth.css" rel="stylesheet" type="text/css" />
+</head>
+
+@{
+    var returnUrl = ViewData["returnUrl"] as string;
+    var error = TempData["error"] as string;
+}
+
+<div class="mobile-page">
+
+    <div class="mobile-page-in">
+        <br /><br />
+        <div style="font-size:12px;">
+        </div>
+        <br /><br /><br />
+        <div style="font-size:16px;line-height: 1;">CRM Ağ Paketi </div>
+        <div style="font-size:32px;line-height: 1;">Oturum Aç</div>
+        <br /><br />
+        @{
+            if (!string.IsNullOrEmpty(error))
+            {
+                <div class="blink" style="font-size: 16px; color: #173d54;"> @error </div>
+            }
+        } @**@
+        <br /><br />
+        <form action="/SignIn?returnUrl=@System.Net.WebUtility.UrlEncode(returnUrl)" method="POST">
+            <input type="text" name="uname" placeholder=" E-Posta " style="" />
+            <br /><br />
+            <input type="password" name="pass" placeholder=" Parola " style="" />
+
+
+            <br /><br />
+            <div style="display: flex; align-items: center;">
+                <input type="checkbox" id="benihatirla" class="switch_1">
+                <label for="benihatirla" style="font-size: 14px; color: #646464;">  Beni Hatırla</label>
+            </div>
+
+            <br /><br />
+            <div style="display: flex; justify-content: space-between;">
+                <a href="/signup" style="display: flex;align-items: center;justify-content: center;font-family: 'Titillium Web' !important; width: 49%;height: 60px;border-width: 2px;border-style: solid;border-color: #d3d3d3;font-size: 15px;padding: 10px;">
+                   Kaydol
+                </a>
+                <input type="submit" name="Login" value="Oturum Aç" style="background-color:#0a639a; color:white;" />
+            </div>
+
+            <br /><br />
+        </form>
+
+        <div style="font-size:14px; color:#7a7a7a;">
+            Kişisel Verilerin İşlenmesine Yönelik Aydınlatma Metnini okumak için tıklayın.
+            <br /> <br />
+            Sözleşme Metnini okumak için tıklayın
+        </div>
+
+        <br /> <br /> <br /><br /> <br /> <br /><br /> <br /> <br />
+        <div style="font-size:12px; color:#7a7a7a;">
+            
+            <br /> <br />
+            DTS TECHNOLOGY Tüm Hakları Saklıdır.
+        </div>
+
+
+
+
+
+
+    </div>
+
+    
+
+
+</div>
+

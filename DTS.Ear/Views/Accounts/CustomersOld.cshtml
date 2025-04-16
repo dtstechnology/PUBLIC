@@ -1,0 +1,159 @@
+﻿@model List<W_TGO_ACNTS>
+
+<head>
+    <style>
+        form {
+            width: 90%;
+            overflow: scroll;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .dts-table-row {
+            display: flex;
+            align-items: center;
+            position: inherit;
+            max-height: 35px;
+        }
+
+        input {
+            height: 30px;
+            padding: 10px;
+            outline: none;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #e6e6e6;
+            background: transparent;
+            color: inherit;
+            font-size: 14px;
+            min-width: 70px;
+            width: 100%;
+        }
+
+            input:focus {
+                background: linear-gradient(0deg, rgb(29 99 151) 0%, rgb(9 68 114) 100%);
+                position: relative;
+                z-index: 10;
+                color: white;
+                box-shadow: rgb(20 78 123 / 28%) 0px 0px 6px 2px;
+            }
+
+
+        td {
+            margin: 0;
+            padding: 0;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: whitesmoke;
+        }
+
+
+        tr:focus-within {
+            background: linear-gradient(0deg, rgb(159 198 227) 0%, rgb(255 255 255) 100%);
+            color: black;
+        }
+
+        .table-header {
+            height: 100px;
+            background: linear-gradient(90deg, rgba(8,67,113,1) 0%, rgba(79,134,175,1) 100%);
+            color: white;
+        }
+
+
+        .control-label .text-info {
+            display: inline-block;
+        }
+
+    </style>
+
+</head> 
+
+<table id="excelDataTable" border="1">
+</table>
+
+
+
+
+
+@section scripts {
+
+    <script>
+
+        $(document).ready(function() {
+            Getdata();
+        });
+
+
+        function Getdata() {
+            var myList = $.getJSON("/Accounts/getCustomers",
+                function(json) {
+                    var tr;
+
+                    //Append each row to html table
+                    for (var i = 0; i < json.length; i++) {
+                        tr = $('<tr/>');
+                        tr.append("<td>" + json[i].acid + "</td>");
+                        tr.append("<td>" + json[i].crid + "</td>");
+                        tr.append("<td>" + json[i].surname + "</td>");
+                        tr.append("<td>" + json[i].companyname + "</td>");
+                        tr.append("<td>" + json[i].phone + "</td>");
+                        tr.append("<td>" + json[i].fax + "</td>");
+                        tr.append("<td>" + json[i].mobilephone + "</td>");
+                        tr.append("<td>" + json[i].email + "</td>");
+                        tr.append("<td>" + json[i].webaddress + "</td>");
+                        tr.append("<td>" + json[i].taxoffice + "</td>");
+                        tr.append("<td>" + json[i].taxno + "</td>");
+                        tr.append("<td>" + json[i].country + "</td>");
+                        tr.append("<td>" + json[i].city + "</td>");
+                        tr.append("<td>" + json[i].zipcode + "</td>");
+                        tr.append("<td>" + json[i].district + "</td>");
+                        tr.append("<td>" + json[i].address + "</td>");
+                        tr.append("<td>" + json[i].addressdelivery + "</td>");
+                        $('table').append(tr);
+                    }
+                });
+
+        }
+
+
+
+        function buildHtmlTable(selector) {
+            var columns = addAllColumnHeaders(myList, selector);
+
+            for (var i = 0; i < myList.length; i++) {
+                var row$ = $('<tr/>');
+                for (var colIndex = 0; colIndex < columns.length; colIndex++) {
+                    var cellValue = myList[i][columns[colIndex]];
+                    if (cellValue == null) cellValue = "";
+                    row$.append($('<td/>').html(cellValue));
+                }
+                $(selector).append(row$);
+            }
+        }
+
+        // Adds a header row to the table and returns the set of columns.
+        // Need to do union of keys from all records as some records may not contain
+        // all records.
+        function addAllColumnHeaders(myList, selector) {
+            var columnSet = [];
+            var headerTr$ = $('<tr/>');
+
+            for (var i = 0; i < myList.length; i++) {
+                var rowHash = myList[i];
+                for (var key in rowHash) {
+                    if ($.inArray(key, columnSet) == -1) {
+                        columnSet.push(key);
+                        headerTr$.append($('<th/>').html(key));
+                    }
+                }
+            }
+            $(selector).append(headerTr$);
+
+            return columnSet;
+        }
+
+
+    </script>
+
+    }

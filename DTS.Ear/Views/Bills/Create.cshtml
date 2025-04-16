@@ -1,0 +1,350 @@
+﻿@model DTS.Logic.Layer.ViewModels.W_TGO_INVCREATE
+
+@{
+    ViewData["Title"] = "Fatura Oluştur";
+}
+
+
+
+
+
+<!-- BEGIN: Breadcrumb -->
+<div class="mb-5">
+    <ul class="m-0 p-0 list-none">
+        <li class="inline-block relative top-[3px] text-base text-primary-500 font-Inter ">
+            <a href="index.html">
+                <iconify-icon icon="heroicons-outline:home"></iconify-icon>
+                <iconify-icon icon="heroicons-outline:chevron-right" class="relative text-slate-500 text-sm rtl:rotate-180"></iconify-icon>
+            </a>
+        </li>
+        <li class="inline-block relative text-sm text-primary-500 font-Inter ">
+            Fatura
+            <iconify-icon icon="heroicons-outline:chevron-right" class="relative top-[3px] text-slate-500 rtl:rotate-180"></iconify-icon>
+        </li>
+        <li class="inline-block relative text-sm text-slate-500 font-Inter dark:text-white">
+            Oluştur
+        </li>
+    </ul>
+</div>
+<!-- END: BreadCrumb -->
+
+<div class="grid xl:grid-cols-2 grid-cols-1 gap-6">
+
+    <div class="card">
+        <div class="card-body flex flex-col p-6">
+            <header class="flex mb-5 items-center border-b border-slate-100 dark:border-slate-700 pb-5 -mx-6 px-6">
+                <div class="flex-1">
+                    <div class="card-title text-slate-900 dark:text-white">Fatura Oluştur </div>
+                </div>
+            </header>
+            <div class="card-text h-full space-y-4">
+
+                 
+
+                <div>
+                    <label for="select0basic" class="form-label">Fatura Türü</label>
+                    <select name="select0basic" id="select0basic" class="select2 form-control w-full mt-2 py-2">
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Alış</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Satış</option>
+                    </select>
+                </div>
+
+
+
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-12" placeholder="Vergi Kimlik / TC Kimlik No">
+                        <button class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-full border-l border-l-slate-200 dark:border-l-slate-700 flex items-center justify-center">
+                            <iconify-icon icon="heroicons-solid:search"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-12" placeholder="Ad">
+                        <button class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-full border-l border-l-slate-200 dark:border-l-slate-700 flex items-center justify-center">
+                            <iconify-icon icon="heroicons-solid:search"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-12" placeholder="Soyad">
+                        <button class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-full border-l border-l-slate-200 dark:border-l-slate-700 flex items-center justify-center">
+                            <iconify-icon icon="heroicons-solid:search"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-12" placeholder="Ünvan">
+                        <button class="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-full border-l border-l-slate-200 dark:border-l-slate-700 flex items-center justify-center">
+                            <iconify-icon icon="heroicons-solid:search"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-32" placeholder="Vergi Dairesi">
+                        <span class="absolute right-0 top-1/2 px-3 -translate-y-1/2 h-full border-l border-l-slate-200 dark:border-r-slate-700 flex items-center justify-center">
+
+                        </span>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-32" placeholder="Ülke">
+                        <span class="absolute right-0 top-1/2 px-3 -translate-y-1/2 h-full border-l border-l-slate-200 dark:border-r-slate-700 flex items-center justify-center">
+
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div class="input-area">
+                    <label for="DrowsTextarea" class="form-label">Adres</label>
+                    <textarea id="DrowsTextarea" class="form-control" rows="5" placeholder="Adres"></textarea>
+                </div>
+
+
+                <div>
+                    <label for="select1basic" class="form-label">GIB Fatura Tipi</label>
+                    <select name="select1basic" id="select1basic" class="select2 form-control w-full mt-2 py-2">
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Satış</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">İstisna</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Tevkifat</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Özel Matrah</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">İhraç Kayıtlı</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Konaklama Vergisi</option>
+
+                    </select>
+                </div>
+
+                <div>
+                    <label for="default-picker" class=" form-label">Düzenlenme Tarihi</label>
+                    <input class="form-control py-2 flatpickr flatpickr-input active" id="default-picker" value="" type="text" readonly="readonly">
+                </div>
+
+                <div>
+                    <label for="time-picker" class="form-label">Düzenlenme Saati</label>
+                    <input class="form-control py-2 flatpickr time flatpickr-input active" id="time-picker" value="" type="text" readonly="readonly">
+                </div>
+
+                <div>
+                    <label for="select2basic" class="form-label">Para Birimi</label>
+                    <select name="select2basic" id="select2basic" class="select2 form-control w-full mt-2 py-2">
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600">Türk Lirası</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Euro</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> US Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Afghani</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Algerian Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Argentine Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Aruban Guilder</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Australian Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Azerbaijanian Manat</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Bahamian Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Bahraini Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Baht</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Balboa</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Barbados Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Belarussian Ruble</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Belize Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Bermudian Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Bolivar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Boliviano</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Bulgarian Lev</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Brazilian Real</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Brunei Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Burundi Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Canadian Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Cape Verde Escudo</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Cayman Islands Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Cedi</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> CFA Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> CFA Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> CFP Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Chilean Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Colombian Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Comoro Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Cordoba Oro</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Costa Rican Colon</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Cuban Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Cyprus Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Czech Koruna</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Danish Krone</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Dalasi</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Denar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Dirham</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Djibouti Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Dobra</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Dominican Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Dong</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Dram</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> East Carribean Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Egyptian Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> El Salvador Colon</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Ethopian Birr</option>
+
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Falkland Islands Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Fiji Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Forint</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Franc Congolais</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Gibraltar Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Gold</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Gourde</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Guarani</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Guinea Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Guyana Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> HKD</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Hryvnia</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Iceland Krona</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Indian Rupee</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Iraqi Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Iranian Rial</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Jamaican Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Jordanian Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kenyan Shilling</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kina</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kip</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kroon</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kuna</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kuwaiti Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kwacha</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kwacha</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kwanza</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Kyat</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Lari</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Latvian Lats</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Lebanese Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Lek</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Lempira</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Leone</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Leu</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Liberian Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Libyan Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Lilangeni</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Lithuanian Litas</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Loti</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Malagasy Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Malaysian Ringgit</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Maltese Lira</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Manat</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Mauritius Rupee</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Metical</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Mexican Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Moldovan Leu</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Morrocan Dirham</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Naira</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Nakfa</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Namibia Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Nepalese Rupee</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Netherlands Antillian Guilder</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> New Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> New Israeli Sheqel</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> New Taiwan Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> New Zealand Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> North Korean Won</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Norwegian Krone</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Ngultrum</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Nuevo Sol</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Ouguiya </option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Pakistan Rupee</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Palladium</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Pataca</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Peso Uruguayo</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Philippine Peso</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Platinum</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Pound Sterling</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Pula</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Qatari Rial</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Quetzal</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Rand</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Rial Omani</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Riel</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Rufiyaa</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Rumen Leyi</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Rupiah</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Russian Ruble</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Rwanda Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Saudi Riyal</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> SDR</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Seychelles Rupee</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Silver</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Singapore Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Slovak Koruna</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Solomon Islands Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Somali Shilling</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Sri Lanka Rupee</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Som</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Somoni</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> St. Helena Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Sudanese Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Suriname Guilder</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Swedish Krona</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Swiss Franc</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Syrian Pound</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Taka</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Tala</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Tanzanian Shilling</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Tenge</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Tolar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Trinidad and Tobago Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Tugrik</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Tunisian Dinar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Türk Lirası</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Uganda Shilling</option>
+
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Uzbekistan Sum</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Vatu</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Won</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Yemeni Rial</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Yen</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Yuan Renminbi</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Zimbabwe Dollar</option>
+                        <option value="option1" class=" inline-block font-Inter font-normal text-sm text-slate-600"> Zloty</option>
+
+                    </select>
+                </div>
+
+
+
+                <div class="input-area">
+                    <div class="relative">
+                        <input type="text" class="form-control !pr-32" placeholder="Döviz Kuru">
+                        <span class="absolute right-0 top-1/2 px-3 -translate-y-1/2 h-full border-l border-l-slate-200 dark:border-r-slate-700 flex items-center justify-center">
+                            ₺
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="card-body flex flex-col p-6">
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+}

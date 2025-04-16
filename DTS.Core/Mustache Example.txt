@@ -1,0 +1,43 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+[HttpGet]
+public JsonResult Get()
+{
+    var userId = this.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+    ViewModelBase model = new ViewModelBase();
+    model.CRS_PROFILE = _userLogic.GetUserProfile(userId);
+    return Json(model);
+}
+
+<h2></h2>
+<template id="tutorials">
+    Here is a person named {{surname}}
+</template>
+
+
+
+<script>
+         var mdl;
+         $.ajax({
+        type: "GET",
+        url: "@Url.Action("Get", "Home")",
+        dataType: "json",
+        data: {  },
+        success: function (response) {
+           
+             mdl = response.crS_PROFILE
+              var template1 = $('#tutorials').html();
+              
+
+                data = mdl;
+                debugger;
+                $('h2').text(Mustache.render(template1, data));
+
+
+        }, error: function (data, status, jqXHR) {
+            alert('There was an error.');
+        }
+    });
+     </script>

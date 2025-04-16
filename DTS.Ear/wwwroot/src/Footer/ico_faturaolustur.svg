@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="11.4301mm" height="11.43mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 26.03 26.03"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <font id="FontID0" horiz-adv-x="596" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Titillium Web">
+		<font-face-src>
+			<font-face-name name="Titillium Web Regular"/>
+		</font-face-src>
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="+" horiz-adv-x="560" d="M55.0067 217.004l0 67.999 188.99 0 0 194.99 69.9989 0 0 -194.99 191.005 0 0 -67.999 -191.005 0 0 -197.005 -69.9989 0 0 197.005 -188.99 0z"/>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Titillium Web";font-variant:normal;font-weight:normal;src:url("#FontID0") format(svg)}
+    .fil0 {fill:#4687F0}
+    .fil1 {fill:white}
+    .fnt0 {font-weight:normal;font-size:15.14px;font-family:'Titillium Web'}
+   ]]>
+  </style>
+     <clipPath id="id0">
+      <path d="M-0 0l26.03 0 0 26.03 -26.03 0 0 -26.03z"/>
+     </clipPath>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1589116436512">
+   <g>
+    <g style="clip-path:url(#id0)">
+     <image x="-0" y="0" width="26.03" height="26.03" xlink:href="ico_faturaolustur_Images\ico_faturaolustur_ImgID1.png"/>
+    </g>
+   </g>
+   <ellipse class="fil0" cx="12.98" cy="13.02" rx="12.02" ry="12.05"/>
+   <g transform="matrix(0.997339 0 0 1 578.738 474.624)">
+    <text x="-571.5" y="-457.82"  class="fil1 fnt0">+</text>
+   </g>
+  </g>
+ </g>
+</svg>

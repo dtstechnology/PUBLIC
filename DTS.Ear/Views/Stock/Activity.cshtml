@@ -1,0 +1,84 @@
+﻿@using System.Text;
+@model W_TGO_STOCK_LIST
+@{
+    ViewData["Title"] = "Stok Hareket";
+
+}
+
+
+<div class="content-box">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="element-wrapper">
+                <div class="element-box">
+
+                    <h5 class="form-header">
+                        Stok Hareketi Güncelle
+                    </h5>
+                    <div class="form-desc">
+                        Tarih : @Model.STOCK_ACTIVITIES.TARIH <br>
+                        Açıklama : @Model.STOCK_ACTIVITIES.ACIKLAMA<br>
+                        İşlem Türü : @Model.STOCK_ACTIVITIES.ISLEMTURU<br>
+                        Miktar : @Model.STOCK_ACTIVITIES.MIKTAR<br>
+                        İlgili Hesap : @Model.STOCK_ACTIVITIES.ACNAME<br>
+                    </div>
+
+                    <form id="stokCikisModalForm" class="formValidate" action="">
+                        <input asp-for="STOCK.STID" type="hidden" />
+                        <input asp-for="STOCK_ACTIVITIES.STACTID" type="hidden" />
+                        <fieldset class="form-group">
+                            <legend><span>Stok </span></legend>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Miktar</label>
+                                        <input asp-for="STOCK_ACTIVITIES.MIKTAR" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Miktar" required="required" type="number">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="">Depo</label>
+                                        <select class="form-control">
+                                            <option>
+                                                Merkez
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Giriş Tarihi</label>
+                                        <input asp-for="STOCK_ACTIVITIES.TARIH" class="single-daterange form-control" placeholder="Tarih" type="datetime" value="@DateTime.Now">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label> Açıklama </label>
+                                        <textarea asp-for="STOCK_ACTIVITIES.ACIKLAMA" class="form-control" rows="3" data-error="Lütfen Alanı Doldurun" placeholder="Açıklama" required="required"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                        </div>
+
+                    </form>
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

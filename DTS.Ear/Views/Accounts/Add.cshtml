@@ -1,0 +1,349 @@
+﻿@model W_TGO_ACNTS
+@{
+    ViewData["Title"] = "Cari Hesap Ekle";
+}
+
+
+<div class="content-box">
+    <div class="row">
+        <div class="col-sm-7">
+            <div class="element-wrapper">
+                <div class="element-box">
+                    <form id="formValidate" action="/accounts/add">
+                        <h5 class="form-header">
+                            Yeni Cari Hesap Ekle
+                        </h5>
+                        <div class="form-desc">
+                            Yeni hesap eklemek için lütfen formu doldurunuz.
+                        </div>
+
+                        <fieldset class="form-group">
+                            <legend><span>Firma Bilgileri</span></legend>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Cari Hesap Durumu</label>
+                                        <select asp-for="ACACT" class="form-control">
+                                            <option value="ALCSTC">
+                                                Alıcı/Satıcı
+                                            </option>
+                                            <option value="ALC">
+                                                Alıcı
+                                            </option>
+                                            <option value="STC">
+                                                Satıcı
+                                            </option>
+                                             <option value="PRS">
+                                                Personel
+                                            </option>
+                                            <option value="ORT">
+                                                Ortak
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                             
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="">Cari Hesap Durumu</label>
+                                        <select asp-for="ACACT" class="form-control">
+                                            <option value="1">
+                                                Aktif
+                                            </option>
+                                            <option value="0">
+                                                Pasif
+                                            </option> 
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Ad </label>
+                                        <input asp-for="NAME" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ad"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Soyad </label>
+                                        <input asp-for="SURNAME" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Soyad"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Şirket Adı</label>
+                                        <input asp-for="COMPANYNAME" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Şirket Adı"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Şirket Telefon No </label>
+                                        <input asp-for="PHONE" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="+90 (...) ... .. .."  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Şirket Cep Telefon No</label>
+                                        <input asp-for="MOBILEPHONE" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="+90 (...) ... .. .." type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Şirket E-Mail</label>
+                                        <input asp-for="EMAIL" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="example@gmail.com"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Web Adres </label>
+                                        <input asp-for="WEBADDRESS" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="www.examplecompany.com"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Vergi Dairesi </label>
+                                        <input asp-for="TAXOFFICE" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Vergi Dairesi"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Vergi No </label>
+                                        <input asp-for="TAXNO" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Vergi No "  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> TC Kimlik No </label>
+                                        <input asp-for="TCID" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="TC Kimlik No"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Ticaret Odası Sicil No</label>
+                                        <input asp-for="COMMERCIALREGISTRYNO" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ticaret Odası Sicil No"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                              <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Ülke </label>
+                                        <input asp-for="COUNTRY" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Ülke"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div> 
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> İl</label>
+                                        <input asp-for="CITY" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="İl"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> İlçe</label>
+                                        <input asp-for="DISTRICT" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="İlçe"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Posta Kodu</label>
+                                        <input asp-for="ZIPCODE" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Posta Kodu"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Adres </label>
+                                        <input asp-for="ADDRESS" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Adres"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Teslimat Adresi </label>
+                                        <input asp-for="ADDRESSDELIVERY" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Teslimat Adresi"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Kur </label>
+                                        <input asp-for="TCMBCURRENCY" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Kur"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Kur Cinsi</label>
+                                        <input asp-for="TCMBCURRENCYTYPE" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Kur Cinsi"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Risk Limiti</label>
+                                        <input asp-for="RISKLIMIT" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Risk Limiti"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Vade Faiz Oranı</label>
+                                        <input asp-for="VADEFAIZORAN" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Vade Faiz Oranı"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> İndirim Oranı</label>
+                                        <input asp-for="INDIRIMORAN" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="İndirim Oranı"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> KEP Adres</label>
+                                        <input asp-for="KEPADRES" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="KEP Adres"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Yetkili List</label>
+                                        <input asp-for="YETKILILIST" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Yetkili List"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for=""> Banka List</label>
+                                        <input asp-for="BANKALIST" class="form-control" data-error="Lütfen Alanı Doldurun" placeholder="Banka List"  type="text">
+                                        <div class="help-block form-text with-errors form-control-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+                             
+
+
+
+                        </fieldset>
+
+
+
+
+
+                        <div class="form-buttons-w">
+                            <button class="btn btn-primary" type="submit"> Kaydet </button>
+                        </div>
+
+
+
+
+
+
+
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,560 @@
+﻿@using DTS.Logic.Layer.ViewModels;
+@model ViewModelBase
+
+
+<!--------------------
+       START - Top Bar
+       -------------------->
+<div class="top-bar color-scheme-transparent" style="display:none;">
+    @*<div class="logo-w">
+        <a class="logo" href="index.html">
+            <div class="logo-element"></div>
+            <div class="logo-label">
+                DTS TECHNOLOGY
+            </div>
+        </a>
+    </div>*@
+    <!--------------------
+    START - Top Menu Controls
+    -------------------->
+    <div class="top-menu-controls" >
+        @*<div class="element-search autosuggest-search-activator">
+            <input placeholder="Start typing to search..." type="text">
+        </div>*@
+        <!--------------------
+        START - Messages Link in secondary top menu
+        -------------------->
+       @* <div class="messages-notifications os-dropdown-trigger os-dropdown-position-left">
+            <i class="os-icon os-icon-mail-14"></i>
+            <div class="new-messages-count">
+                12
+            </div>
+            <div class="os-dropdown light message-list">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="user-avatar-w">
+                                <img alt="" src="/img/avatar1.jpg">
+                            </div>
+                            <div class="message-content">
+                                <h6 class="message-from">
+                                    John Mayers
+                                </h6>
+                                <h6 class="message-title">
+                                    Account Update
+                                </h6>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="user-avatar-w">
+                                <img alt="" src="/img/avatar2.jpg">
+                            </div>
+                            <div class="message-content">
+                                <h6 class="message-from">
+                                    Phil Jones
+                                </h6>
+                                <h6 class="message-title">
+                                    Secutiry Updates
+                                </h6>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="user-avatar-w">
+                                <img alt="" src="/img/avatar3.jpg">
+                            </div>
+                            <div class="message-content">
+                                <h6 class="message-from">
+                                    Bekky Simpson
+                                </h6>
+                                <h6 class="message-title">
+                                    Vacation Rentals
+                                </h6>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="user-avatar-w">
+                                <img alt="" src="/img/avatar4.jpg">
+                            </div>
+                            <div class="message-content">
+                                <h6 class="message-from">
+                                    Alice Priskon
+                                </h6>
+                                <h6 class="message-title">
+                                    Payment Confirmation
+                                </h6>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>*@
+        <!--------------------
+        END - Messages Link in secondary top menu
+        -------------------->
+        <!--------------------
+        START - Settings Link in secondary top menu
+        -------------------->
+        @*  <div class="top-icon top-settings os-dropdown-trigger os-dropdown-position-left">
+            <i class="os-icon os-icon-ui-46"></i>
+           <div class="os-dropdown">
+                 <div class="icon-w">
+                    <i class="os-icon os-icon-ui-46"></i>
+                </div>
+              <ul>
+                    <li>
+                        <a href="#"><i class="os-icon os-icon-ui-49"></i><span>Profil Detayları</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="os-icon os-icon-grid-10"></i><span>Genel Ayarlar</span></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="os-icon os-icon-ui-44"></i><span>Faturalarım</span></a>
+                    </li> 
+                </ul>
+            </div>
+        </div>*@
+        <!--------------------
+        END - Settings Link in secondary top menu
+        -------------------->
+        <!--------------------
+        START - User avatar and menu in secondary top menu
+        -------------------->
+   @*     <div class="logged-user-w">
+            <div class="logged-user-i">
+                <div class="avatar-w">
+                    <img alt="" src="@Model.CRS_PROFILE.PROFILEIMG">
+                </div>
+                <div class="logged-user-menu color-style-bright">
+                    <div class="logged-user-avatar-info">
+                        <div class="avatar-w">
+                            <img alt="" src="@Model.CRS_PROFILE.PROFILEIMG">
+                        </div>
+                        <div class="logged-user-info-w">
+                            <div class="logged-user-name">
+                                @Model.CRS_PROFILE.NAME @Model.CRS_PROFILE.SURNAME
+                            </div>
+                            <div class="logged-user-role">
+                                @Model.CRS_PROFILE.ROLE
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-icon">
+                        <i class="os-icon os-icon-wallet-loaded"></i>
+                    </div>
+                    <ul> 
+                        <li>
+                            <a href="#"><i class="os-icon os-icon-user-male-circle2"></i><span>Profil Ayarları</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="os-icon os-icon-coins-4"></i><span>Ödemeler</span></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="os-icon os-icon-others-43"></i><span>Bildirimler</span></a>
+                        </li>
+                        <li>
+                            <a href="/auth/logout"><i class="os-icon os-icon-signs-11"></i><span>Logout</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>*@
+        <!--------------------
+        END - User avatar and menu in secondary top menu
+        -------------------->
+    </div>
+    <!--------------------
+    END - Top Menu Controls
+    -------------------->
+</div>
+<!--------------------
+END - Top Bar
+-------------------->
+
+<!--------------------
+        START - Mobile Menu
+        -------------------->
+<div class="menu-mobile menu-activated-on-click color-scheme-dark">
+    <div class="mm-logo-buttons-w">
+        <a class="mm-logo" href="/home/dashboard">
+            @*<img src="/img/logo.png">
+            <span>DTS TECHNOLOGY</span>*@
+        </a>
+       <div class="mm-buttons">
+             @*<div class="content-panel-open">
+                <div class="os-icon os-icon-grid-circles"></div>
+            </div>*@
+            <div class="mobile-menu-trigger">
+                <div class="os-icon os-icon-hamburger-menu-1"></div>
+            </div>
+        </div>
+    </div>
+    <div class="menu-and-user">
+        @*<div class="logged-user-w">
+            <div class="avatar-w">
+                <img alt="" src="/img/avatar1.jpg">
+            </div>
+            <div class="logged-user-info-w">
+                <div class="logged-user-name">
+                    maria gomez
+                </div>
+                <div class="logged-user-role">
+                    administrator
+                </div>
+            </div>
+        </div>*@
+        <!--------------------
+        START - Mobile Menu List
+        -------------------->
+        <ul class="main-menu">
+            <li class="has-sub-menu">
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-layout"></div>
+                    </div>
+                    <span>Ana Ekran</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/home/dashboard">Gösterge Paneli</a>
+                    </li>
+                   
+                </ul>
+            </li>
+           
+            <li class="has-sub-menu"> @*Envanter*@
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-package"></div>
+                    </div>
+                    <span>Envanter</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/stock/list">Tüm Ürünler</a>
+                    </li>
+                     <li>
+                        <a href="/stock/add">Yeni Ürün Ekle</a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li class="has-sub-menu"> @*Fatura*@
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-file-text"></div>
+                    </div>
+                    <span>Fatura</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/bills/list">Tüm Faturalar</a>
+                    </li>
+                    <li>
+                        <a href="/bills/add">Yeni Fatura Oluştur</a>
+                    </li>
+                     
+                </ul>
+            </li>
+       
+           
+            <li class="has-sub-menu"> @*Cari Hesaplar*@
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-users"></div>
+                    </div>
+                    <span>Cari Hesaplar</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/accounts/list">Tüm Hesaplar</a>
+                    </li>
+                    <li>
+                        <a href="/accounts/add">Yeni Cari Ekle</a>
+                    </li>
+                </ul>
+            </li>
+         
+             <li class="has-sub-menu"> @*Ayarlar*@
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-settings"></div>
+                    </div>
+                    <span>Ayarlar</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/settings/list">Uygulama Ayarları</a>
+                    </li> 
+                </ul>
+            </li>
+
+            <li class="has-sub-menu"> @*Profil*@
+                <a href="#">
+                    <div class="icon-w">
+                        <div class="os-icon os-icon-user"></div>
+                    </div>
+                    <span>Profil</span>
+                </a>
+                <ul class="sub-menu">
+                    <li>
+                        <a href="/profile/list">@Model.CRS_PROFILE.NAME @Model.CRS_PROFILE.SURNAME</a>
+                    </li>
+                    <li>
+                        <a href="/auth/logout">Çıkış Yap</a>
+                    </li>
+                </ul>
+            </li>
+         
+
+        </ul>
+        <!--------------------
+        END - Mobile Menu List
+        -------------------->
+       
+    </div>
+</div>
+<!--------------------
+END - Mobile Menu
+-------------------->
+<!--------------------
+START - Main Menu
+-------------------->
+<div class="menu-w color-scheme-light color-style-default menu-position-top menu-layout-compact sub-menu-style-over sub-menu-color-bright selected-menu-color-bright menu-activated-on-hover menu-has-selected-link">
+   @* <div class="logo-w">
+        <a class="logo" href="index.html">
+            <div class="logo-element"></div>
+            <div class="logo-label">
+                DTS TECHNOLOGY
+            </div>
+        </a>
+    </div>*@
+    <h1 class="menu-page-header">
+        Page Header
+    </h1>
+    <ul class="main-menu" style="width:100%;">
+        <li class="sub-header">
+            <span>Layouts</span>
+        </li>
+        @*selected*@
+        <li class=" has-sub-menu"> @*Dashboard*@
+            <a href="/home/dashboard">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-layout"></div>
+                </div>
+                <span>Ana Ekran</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Ana Ekran
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-layout"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/home/dashboard">Gösterge Paneli</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </li>
+       
+    
+        <li class=" has-sub-menu"> @*Envanter*@
+            <a href="#">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-package"></div>
+                </div>
+                <span>Envanter</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Envanter
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-package"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/stock/list">Tüm Ürünler</a>
+                        </li>
+                        <li>
+                            <a href="/stock/add">Yeni ürün Ekle</a>
+                        </li>
+                        
+                    </ul>
+                 
+
+                </div>
+            </div>
+        </li>
+        <li class=" has-sub-menu"> @*Fatura*@
+            <a href="#">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-file-text"></div>
+                </div>
+                <span>Fatura</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Fatura
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-file-text"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/bills/list">Tüm Faturalar</a>
+                        </li>
+                        <li>
+                            <a href="/bills/add">Yeni Fatura Oluştur</a>
+                        </li>
+
+
+                    </ul>
+                  
+                </div>
+            </div>
+        </li>
+        
+        <li class=" has-sub-menu"> @*Cari*@
+            <a href="#">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-users"></div>
+                </div>
+                <span>Cari Hesaplar</span>
+            </a>
+            <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Cari Hesaplar
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-users"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/accounts/list">Tüm Hesaplar</a>
+                        </li>
+                        <li>
+                            <a href="/accounts/add">Yeni Cari Ekle</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <ul class="main-menu">
+        
+
+        <li class=" has-sub-menu">
+            @*Profil*@
+            <a href="#" style="padding-right: 5px;">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-users"></div>
+                </div>
+                @*<span>Profil</span>*@
+            </a>
+           @* <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                    Profil
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-users"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                           <li>
+                            <a href="/profile/list">@Model.CRS_PROFILE.NAME @Model.CRS_PROFILE.SURNAME</a>
+                        </li>
+                        <li>
+                            <a href="/auth/logout">Çıkış Yap</a>
+                        </li>
+                       
+                    </ul>
+                </div>
+            </div>*@
+        </li>
+        <li class=" has-sub-menu">
+            @*Profil*@
+            <a href="/auth/logout" style="padding-right: 5px;">
+                <div class="icon-w">
+                    <div class=" os-icon os-icon-power"></div>
+                </div>
+                @*<span>Profil</span>*@
+            </a>
+            @* <div class="sub-menu-w">
+            <div class="sub-menu-header">
+            Profil
+            </div>
+            <div class="sub-menu-icon">
+            <i class="os-icon os-icon-users"></i>
+            </div>
+            <div class="sub-menu-i">
+            <ul class="sub-menu">
+            <li>
+            <a href="/profile/list">@Model.CRS_PROFILE.NAME @Model.CRS_PROFILE.SURNAME</a>
+            </li>
+            <li>
+            <a href="/auth/logout">Çıkış Yap</a>
+            </li>
+
+            </ul>
+            </div>
+            </div>*@
+        </li>
+
+       
+
+        <li class=" has-sub-menu">
+            @*Ayarlar*@
+            <a href="#" style="padding-right: 5px;">
+                <div class="icon-w">
+                    <div class="os-icon os-icon-settings"></div>
+                </div>
+                @*<span> </span>*@
+            </a>
+           @* <div class="sub-menu-w">
+                <div class="sub-menu-header">
+                     
+                </div>
+                <div class="sub-menu-icon">
+                    <i class="os-icon os-icon-settings"></i>
+                </div>
+                <div class="sub-menu-i">
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="/accounts/list">Uygulama Ayarları</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>*@
+        </li>
+         
+      
+    </ul>
+   @* <div class="side-menu-magic">
+        <h4>
+            Light Admin
+        </h4>
+        <p>
+            Clean Bootstrap 4 Template
+        </p>
+        <div class="btn-w">
+            <a class="btn btn-white btn-rounded" href="https://themeforest.net/item/light-admin-clean-bootstrap-dashboard-html-template/19760124?ref=Osetin" target="_blank">Purchase Now</a>
+        </div>
+    </div>*@
+</div>
+<!--------------------
+END - Main Menu
+-------------------->

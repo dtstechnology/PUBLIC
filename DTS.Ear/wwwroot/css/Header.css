@@ -1,0 +1,263 @@
+﻿.blink {
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -1920px;
+    }
+}
+
+.slide-down {
+    /*overflow: hidden;*/
+}
+
+.slide-down {
+    animation: 1s slide-down 0s forwards;
+    transform: translateY(-100%);
+}
+
+@keyframes slide-down {
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+.slide-left {
+    overflow: hidden;
+}
+
+.slide-left {
+    animation: 1s slide-left 0s forwards;
+    transform: translateX(90%);
+}
+
+@keyframes slide-left {
+    to {
+        transform: translateX(0);
+    }
+}
+
+.slide-right {
+    overflow: hidden;
+}
+
+.slide-right {
+    animation: 1s slide-right 0s forwards;
+    transform: translateX(-90%);
+}
+
+@keyframes slide-right {
+    to {
+        transform: translateX(0);
+    }
+}
+
+/*----------------------------------------NAVBAR-ICO-------------------------------------------*/
+.menu-ico {
+    display: inline-block;
+    cursor: pointer;
+    z-index: 990;
+    position: absolute;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 25px;
+    height: 2px;
+    background-color: rgb(77 77 77);
+    margin: 4px 0;
+    transition: 0.4s;
+    border-radius: 42px;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-4px, 4px);
+    transform: rotate(-45deg) translate(-4px, 4px);
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-4px, -4px);
+    transform: rotate(45deg) translate(-4px, -4px);
+}
+
+
+/*----------------------------------------NAVBAR-ICO-------------------------------------------*/
+
+
+#TgoHeaderStrip {
+    width: 100%;
+    height: 3px;
+    margin-right: auto;
+    margin-left: auto;
+    background-image: url(http://spareparts.DTS.com.tr/Src/Header/tgo_headerstrip.png);
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-size: contain;
+    /*animation: marquee 20s infinite linear;*/
+    box-shadow: rgb(0 0 0 / 15%) 0px 2px 3px 1px;
+}
+
+#earHeader {
+    width: 100%;
+    height: 65px;
+    display: flex;
+}
+
+#earHeaderIn {
+    width: 95%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 100px) and (max-width: 1000px) {
+    #earHeaderIn {
+        width: 90%;
+    }
+}
+
+
+#headerLogo {
+    display: flex;
+    align-items: center;
+}
+
+    #headerLogo > img {
+        height: 40%;
+    }
+
+@media screen and (min-width: 100px) and (max-width: 1000px) {
+    #headerLogo > img {
+        height: 35%;
+    }
+}
+
+
+#headerMenuBackground {
+    width: 350px;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    z-index: 950;
+    right: 0;
+    top: 0;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.3);
+    display: none;
+    text-align: right;
+    padding: 50px;
+    padding-top: 80px;
+}
+
+.menuButtons {
+    color: rgba(61, 61, 61, 0.85);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    cursor: pointer;
+}
+
+#headerMenuIco {
+    height: 100%;
+    width: 30px;
+    display: flex;
+    align-items: center;
+}
+
+
+#earTabBar {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    /*background-color: #ffffffed;
+    box-shadow: rgb(0 0 0 / 15%) 0px -2px 3px 1px;*/
+}
+
+.earTabBar-Button {
+    display:none;
+}
+
+
+@media screen and (min-width: 100px) and (max-width: 1000px) {
+    .earTabBar-Button {
+        width: 33.3%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+}
+
+    .earTabBar-Button > div {
+        padding-bottom: 10px;
+        text-align: center;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+#etbFaturalarim {
+    font-size:12px;
+}
+
+#etbFaturaOlustur {
+    font-size: 13px;
+    
+}
+
+#etbCariEkle {
+    font-size: 12px;
+}
+
+
+.earTabBar-Button > div > img {
+    padding: 5px;
+}
+
+/*.header-menu {
+    display: flex;
+    flex-direction: row;
+    background: #d5d5d5;
+}
+
+.header-menu-button {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-right-style: solid;
+    border-width: 1px;
+    margin: 0px;
+    border-color: grey;
+}
+
+    .header-menu-button:hover {
+        color: #ffffff;
+        background-color: #0d515e;
+    }
+*/
